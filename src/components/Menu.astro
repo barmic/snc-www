@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { t } from "../i18n/i18n";
 import cfp from '../data/cfp.json';
 
@@ -10,7 +11,7 @@ const path_fr = path.replace('/en/','/');
 ---
 <header>
   <nav id="snc-header" class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href={url_prefix+'/'}>
+    <a class="navbar-brand" href={getRelativeLocaleUrl(lang, '/')}>
       <img src="/img/alpes-snow-full-illustration.webp" alt="Logo">
     </a>
 
@@ -22,9 +23,9 @@ const path_fr = path.replace('/en/','/');
           </a>
           <div class="dropdown-menu" aria-labelledby="navSnowcampDropdown">
             <a class="dropdown-item" href={url_prefix+'/snowcamp/#what'}>{t("what_is_this")}</a>
-            <a class="dropdown-item" href={url_prefix+'/organisation/'}>Organisation</a>
-            <a class="dropdown-item" href={url_prefix+'/association/'}>Association</a>
-            <a class="dropdown-item" href={url_prefix+'/previous-editions/'}>{t("past_editions")}</a>
+            <a class="dropdown-item" href={getRelativeLocaleUrl(lang, 'organisation')}>Organisation</a>
+            <a class="dropdown-item" href={getRelativeLocaleUrl(lang, 'association')}>Association</a>
+            <a class="dropdown-item" href={getRelativeLocaleUrl(lang, 'previous-editions')}>{t("past_editions")}</a>
           </div>
         </li>
         <li class="nav-item"><a class="nav-link" href={url_prefix+'/schedule/'}>{ t("schedule_menu") }</a></li>
@@ -44,16 +45,16 @@ const path_fr = path.replace('/en/','/');
           </a>
           <div class="dropdown-menu" aria-labelledby="navSponsorsDropdown">
             <a class="dropdown-item" href={url_prefix+'/#sponsors'}>{t("our_sponsors")}</a>
-            <a class="dropdown-item" href={url_prefix+'/sponsors/'}> {t("become_sponsor")} </a>
+            <a class="dropdown-item" href={getRelativeLocaleUrl(lang, 'sponsors')}>{t("become_sponsor")}</a>
             <a class="dropdown-item" href={url_prefix+'/sponsors/#plan'}> {t("sponsor_plan_title")} </a>
             <a class="dropdown-item" href={url_prefix+'/sponsors/#beers'}> {t("sponsor_meetgreet_title")} </a>
             <a class="dropdown-item" href={url_prefix+'/sponsors_guide/'}> {t("sponsor_guide_title")} </a>
           </div>
         </li>
         <li class="nav-item"><a class="nav-link" href={url_prefix+'/#venue'}> {t("venue")} </a></li>
-        <li class="nav-item"><a class="nav-link" href={url_prefix+'/tickets/'}>{t("tickets")}</a></li>
+        <li class="nav-item"><a class="nav-link" href={getRelativeLocaleUrl(lang, 'tickets')}>{t("tickets")}</a></li>
         <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/channel/UCvRA5NSOfGOPet90fdV7uuw/videos" target="_blank">{t("videos")}</a></li>
-        <li class="nav-item"><a class="nav-link" href={url_prefix+'/coc/'}>{t("coc")}</a></li>
+        <li class="nav-item"><a class="nav-link" href={getRelativeLocaleUrl(lang, 'coc')}>{t("coc")}</a></li>
         <li class="nav-item"><a class="nav-link" href={lang == "fr" ? path_en : path_fr}>
           { lang == "fr" ?
               <img class="snc-flag" src="/img/gb.svg" alt="Switch to English">

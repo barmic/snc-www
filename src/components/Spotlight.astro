@@ -1,0 +1,65 @@
+---
+import edition from '../data/edition.json';
+const lang = (Astro.locals as any).lang;
+
+const [days, hours, minutes, seconds] = lang === 'fr'
+  ? ['Jours', 'Heures', 'Minutes', 'Secondes']
+  : ['Days', 'Hours', 'Minutes', 'Seconds'];
+
+const startFormat = Intl.DateTimeFormat(lang, {
+  month: 'long',
+  day: 'numeric',
+});
+const endFormat = Intl.DateTimeFormat(lang, {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const startDate = new Date(edition.start_date);
+const start = startFormat.format(startDate);
+const end = endFormat.format(new Date(edition.end_date));
+const year = startDate.getFullYear();
+---
+<script>
+const second = 1000;
+const minute = second * 60;
+const hour = minute * 60;
+const day = hour * 24;
+const daysElem = document.getElementById("cd-days");
+const hoursElem = document.getElementById("cd-hours");
+const minElem = document.getElementById("cd-min");
+const secElem = document.getElementById("cd-sec");
+const countdown = document.getElementById("countdown");
+const deadline = new Date(countdown.dataset.date);
+
+const timer = setInterval(() => {
+  const distance = deadline - new Date().getTime();
+  if (distance > 0) {
+    daysElem.innerText = `${Math.floor(distance / day)}`;
+    hoursElem.innerText = `${Math.floor((distance % day) / hour)}`;
+    minElem.innerText = `${Math.floor((distance % hour) / minute)}`;
+    secElem.innerText = `${Math.floor((distance % minute) / second)}`;
+    countdown.hidden = false;
+  } else {
+    countdown.hidden = true;
+    clearInterval(timer);
+  }
+}, 0);
+</script>
+
+<div class="full-bleed" style="background: url(/img/banner-blue.webp) top center no-repeat fixed; height: 400px">
+  <div style="padding-top: 5rem; padding-left: 10rem;">
+    <div id="countdown" data-date={ edition.start_date } style="width: 400px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; justify-items: center;">
+      <b id="cd-days"></b>
+      <b id="cd-hours"></b>
+      <b id="cd-min"></b>
+      <b id="cd-sec"></b>
+      <i>{days}</i>
+      <i>{hours}</i>
+      <i>{minutes}</i>
+      <i>{seconds}</i>
+    </div>
+    <h2 class="title">Snowcamp <span>{ year }</span></h2>
+    <h3 class="date">{ start } - { end }, Grenoble</h3>
+  </div>
+</div>

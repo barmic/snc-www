@@ -5,5 +5,7 @@
   "dates": {
     "fr": "28 janvier - 31 janvier",
     "en": "28th of Jan - 31th of Jan"
-  }
+  },
+  "start_date": "2026-01-28",
+  "end_date": "2026-01-31"
 }
