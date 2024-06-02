@@ -5,12 +5,12 @@ export interface Props {
 const { title } = Astro.props;
 const lang = (Astro.locals as any).lang;
 
-import HeaderIncludes from "../components/HeaderIncludes.astro";
 import Footer from '../components/Footer.astro';
 import Menu from '../components/Menu.astro';
-import site from '../data/site.json';
 import 'bootstrap/dist/css/bootstrap.css'
 import '../styles/style.less';
+
+const {frontmatter} = Astro.props;
 ---
 <!DOCTYPE html>
 <html class="no-js" lang={lang} prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
@@ -19,13 +19,17 @@ import '../styles/style.less';
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="/js/semantic/step.css" rel="stylesheet" type="text/css" />
+	<link rel="shortcut icon" type="image/png" href="/img/favicon/favicon.png">
 	<link rel="stylesheet" href="/style.css">
 	<link rel="canonical" href="">
-	<title>{title}</title>
-	<HeaderIncludes></HeaderIncludes>
+	<title>{frontmatter.title}</title>
 </head>
 <body lang={lang}>
-	<Menu></Menu>
+  <Menu class="full-bleed"></Menu>
+  <main>
 	<slot />
-	<Footer></Footer>
+  </main>
+  <Footer></Footer>
 </body>

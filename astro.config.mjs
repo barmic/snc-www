@@ -1,17 +1,22 @@
 import { defineConfig } from 'astro/config';
-import { i18n } from "astro-i18n-aut/integration";
+import mdx from '@astrojs/mdx';
 
-export const defaultLocale = "fr";
-export const locales = {
-  en: "en-US", // the `defaultLocale` value must present in `locales` keys
-  fr: "fr-FR",
-};
+const defaultLocale = 'fr';
+const locales = ['en', 'fr'];
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://snowcamp.io',
-  trailingSlash: "always",
-  build: { format: "directory" },
-  integrations: [
-    i18n({ locales, defaultLocale })
-  ]
+  trailingSlash: 'always',
+  build: {
+    format: 'directory'
+  },
+  i18n: {
+    defaultLocale,
+    locales,
+    routing: {
+      prefixDefaultLocale: true
+    }
+  },
+  integrations: [mdx()]
 });

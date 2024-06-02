@@ -1,3 +1,35 @@
+body {
+  margin-top: 60px !important; /* menu */
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr min(70ch, 100%) 1fr 1fr;
+  & > :not(header,footer) {
+    grid-column: 3;
+  }
+}
+
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / 6;
+}
+
+footer {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: #38324a;
+  gap: 15px;
+}
+
 .text-big-italic {
   font-size: 2.6rem;
   line-height: 3.9rem;
@@ -6,4 +38,43 @@
   opacity: 0.7;
   font-style: italic;
   text-align: center;
+}
+
+button.round {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border: 5px solid grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: orange;
+}
+
+blockquote {
+  padding: 0 0 !important;
+  margin: 0 !important;
+}
+
+blockquote > p {
+  font-size: 2.6rem;
+  line-height: 3.9rem;
+  padding: 0 20% !important;
+  margin: 0 !important;
+  font-family: Lora,serif;
+  font-weight: 400;
+  opacity: .7;
+  font-style: italic;
+  text-align: center !important;
+}
+
+h1 {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #2e2841;
+  line-height: 12.5rem;
+  text-transform: uppercase;
+  font-family: Oswald,sans-serif;
+  justify-self: center;
 }
