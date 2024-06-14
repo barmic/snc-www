@@ -1,11 +1,23 @@
 {
-  "year": 2026,
-  "count_down": "2026/01/28",
-  "previous_edition_year": 2025,
-  "dates": {
-    "fr": "28 janvier - 31 janvier",
-    "en": "28th of Jan - 31th of Jan"
-  },
   "start_date": "2026-01-28",
-  "end_date": "2026-01-31"
+  "end_date": "2026-01-31",
+  "timeline": {
+    "cfp": {
+      "open": {
+        "date": "2025-09-01",
+        "fr": "Ouverture du CFP",
+        "en": "CFP opens"
+      },
+      "close": {
+        "date": "2025-10-15",
+        "fr": "Fermeture du CFP",
+        "en": "CFP closes"
+      },
+      "notification": {
+        "date": "2025-11-01",
+        "fr": "Notifications",
+        "en": "Notifications"
+      }
+    }
+  }
 }
