@@ -1,4 +1,23 @@
 {
   "start_date": "2025-01-22",
-  "end_date": "2025-01-25"
+  "end_date": "2025-01-25",
+  "timeline": {
+    "cfp": {
+      "open": {
+        "date": "2024-09-01",
+        "fr": "Ouverture du CFP",
+        "en": "CFP opens"
+      },
+      "close": {
+        "date": "2024-10-15",
+        "fr": "Femeture du CFP",
+        "en": "CFP closes"
+      },
+      "notification": {
+        "date": "2024-11-01",
+        "fr": "Notifications",
+        "en": "Notifications"
+      }
+    }
+  }
 }

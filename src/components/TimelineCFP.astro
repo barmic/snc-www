@@ -1,0 +1,61 @@
+---
+import edition from '../data/edition.json';
+const lang = (Astro.locals as any).lang;
+
+const startFormat = Intl.DateTimeFormat(lang, {
+  month: 'long',
+  day: 'numeric',
+});
+const endFormat = Intl.DateTimeFormat(lang, {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const open = startFormat.format(new Date(edition.timeline.cfp.open.date));
+const close = startFormat.format(new Date(edition.timeline.cfp.close.date));
+const notification = startFormat.format(new Date(edition.timeline.cfp.notification.date));
+const startFormatSnowcamp = Intl.DateTimeFormat(lang, {
+  month: 'short',
+  day: 'numeric',
+});
+const endFormatSnowcamp = Intl.DateTimeFormat(lang, {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+const start = startFormatSnowcamp.format(new Date(edition.start_date));
+const end = endFormatSnowcamp.format(new Date(edition.end_date));
+---
+<style>
+  h2 {
+    font-size: 24px;
+    color: red;
+  }
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+  }
+</style>
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+  <div class="step">
+    <h2>{edition.timeline.cfp.open[lang]}</h2>
+    <p>{open}</p>
+  </div>
+  <div class="step">
+    <h2>{edition.timeline.cfp.close[lang]}</h2>
+    <p>{close}</p>
+  </div>
+  <div class="step">
+    <h2>{edition.timeline.cfp.notification[lang]}</h2>
+    <p>{notification}</p>
+  </div>
+  <div class="step">
+    <h2>Snowcamp</h2>
+    <p>{start} - {end}</p>
+  </div>
+</div>
