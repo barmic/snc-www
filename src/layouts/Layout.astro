@@ -1,4 +1,5 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 export interface Props {
 	title: string;
 }
@@ -6,12 +7,47 @@ const { title } = Astro.props;
 const lang = (Astro.locals as any).lang;
 
 import Footer from '../components/Footer.astro';
-import Menu from '../components/Menu.astro';
-import 'bootstrap/dist/css/bootstrap.css'
-import '../styles/style.less';
+import NewMenu from '../components/NewMenu.astro';
+import '../styles/reset.css';
+import '../styles/style.css';
 
 const {frontmatter} = Astro.props;
 ---
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #2e2841;
+    gap: 15px;
+  }
+  header {
+    background-color: #2e2841;
+    color: white;
+    padding: 0;
+
+    /* keep header sticky */
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    /* organize content */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+</style>
 <!DOCTYPE html>
 <html class="no-js" lang={lang} prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 <head>
@@ -22,12 +58,16 @@ const {frontmatter} = Astro.props;
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="/js/semantic/step.css" rel="stylesheet" type="text/css" />
 	<link rel="shortcut icon" type="image/png" href="/img/favicon/favicon.png">
-	<link rel="stylesheet" href="/style.css">
 	<link rel="canonical" href="">
 	<title>{frontmatter.title}</title>
 </head>
 <body lang={lang}>
-  <Menu class="full-bleed"></Menu>
+  <header class="full-bleed">
+    <a href={getRelativeLocaleUrl(lang, '/')}>
+      <img style="max-width: 170px" src="/img/alpes-snow-full-illustration.webp" alt="Logo">
+    </a>
+    <NewMenu></NewMenu>
+  </header>
   <main>
 	<slot />
   </main>

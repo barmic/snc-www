@@ -20,6 +20,58 @@ const start = startFormat.format(startDate);
 const end = endFormat.format(new Date(edition.end_date));
 const year = startDate.getFullYear();
 ---
+<style>
+  #cd-days {
+    color: #fff200;
+  }
+  #cd-hours {
+    color: #ff8a00;
+  }
+  #cd-min {
+    color: #00b9ff;
+  }
+  #cd-sec {
+    color: #8dc63f;
+  }
+  .year {
+    color: #8dc63f;
+  }
+  .dates {
+    color: #ff8a00;
+  }
+  #countdown {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    & > b {
+      font-weight: 700;
+      font-size: 34px;
+    }
+  }
+  .title {
+    font-family: 'Luciole-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    text-transform: uppercase;
+  }
+  .dates {
+    font-family: 'Luciole-Bold', sans-serif;
+    font-weight: 700;
+
+  }
+  .countdown-box {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 2rem;
+    margin-left: 10rem;
+    padding: 2rem;
+    background-color: #2e284199;
+    & > * {
+      color: white;
+    }
+    border-radius: 12px;
+  }
+</style>
 <script>
 const second = 1000;
 const minute = second * 60;
@@ -48,8 +100,8 @@ const timer = setInterval(() => {
 </script>
 
 <div class="full-bleed" style="background: url(/img/banner-blue.webp) top center no-repeat fixed; height: 400px">
-  <div style="padding-top: 5rem; padding-left: 10rem;">
-    <div id="countdown" data-date={ edition.start_date } style="width: 400px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; justify-items: center;">
+  <div class="countdown-box">
+    <div id="countdown" data-date={ edition.start_date }>
       <b id="cd-days"></b>
       <b id="cd-hours"></b>
       <b id="cd-min"></b>
@@ -59,7 +111,7 @@ const timer = setInterval(() => {
       <i>{minutes}</i>
       <i>{seconds}</i>
     </div>
-    <h2 class="title">Snowcamp <span>{ year }</span></h2>
-    <h3 class="date">{ start } - { end }, Grenoble</h3>
+    <h2 class="title">Snowcamp <span class="year">{ year }</span></h2>
+    <h3 class="date"><span class="dates">{ start } - { end }</span>, Grenoble</h3>
   </div>
 </div>

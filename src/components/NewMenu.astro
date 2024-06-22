@@ -1,0 +1,128 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const lang = (Astro.locals as any).lang;
+
+const trad = {
+  "what": {
+    "fr": "C'est quoi ?",
+    "en": "What is this?",
+  },
+  "organisation": {
+    "fr": "Organisation",
+    "en": "Organisation",
+  },
+  "association": {
+    "fr": "Association",
+    "en": "Association",
+  },
+  "past_editions": {
+    "fr": "Éditions précédentes",
+    "en": "Past Edition",
+  },
+  "our_sponsors": {
+    "fr": "Nos sponsors",
+    "en": "Our sponsors",
+  },
+  "become_sponsor": {
+    "fr": "Devenir sponsors",
+    "en": "Become sponsors",
+  },
+  "sponsor_plan_title": {
+    "fr": "Plan des stands",
+    "en": "Plan of booths",
+  },
+  "sponsor_meetgreet_title": {
+    "fr": "Meet & Greet",
+    "en": "Meet & Greet",
+  },
+  "sponsor_guide_title": {
+    "fr": "Guide du sponsor",
+    "en": "Sponsor guide",
+  },
+  "venue": {
+    "fr": "Venir",
+    "en": "Venue",
+  },
+  "ticket": {
+    "fr": "Billeterie",
+    "en": "Venue",
+  },
+  "videos": {
+    "fr": "Vidéos",
+    "en": "Videos",
+  },
+  "coc": {
+    "fr": "CDC",
+    "en": "COC",
+  },
+}
+---
+<style>
+  .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  a {
+    color: inherit;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .menu > li {
+  }
+  li:has(> ul)::after {
+    content: "▼";
+  }
+  li > ul {
+    display: none;
+    padding: 1rem;
+  }
+  li:hover > ul {
+    display: block;
+    float: left;
+    position: absolute;
+    background-color: var(--background);
+    color: var(--main);
+    border-style: solid;
+    border-color: var(--main);
+    border-radius: 4px;
+  }
+  li:hover > ul > li > a:hover {
+    color: var(--orange);
+  }
+
+  a:hover {
+    color: var(--orange-on-main);
+  }
+</style>
+<ul class="menu">
+  <li>
+    <a>Snowcamp</a>
+    <ul>
+      <li><a href={getRelativeLocaleUrl(lang, '/snowcamp/#what')}>{trad.what[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, 'organisation')}>{trad.organisation[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, 'association')}>{trad.association[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, 'previous-editions')}>{trad.past_editions[lang]}</a></li>
+    </ul>
+  </li>
+  <li><a>CFP</a></li>
+  <li>
+    <a>Sponsors</a>
+    <ul>
+      <li><a href={getRelativeLocaleUrl(lang, '/#sponsors')}>{trad.our_sponsors[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, 'sponsors')}>{trad.become_sponsor[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/sponsors/#plan')}>{trad.sponsor_plan_title[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/sponsors/#beers')}>{trad.sponsor_meetgreet_title[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, '/sponsors_guide/')}>{trad.sponsor_guide_title[lang]}</a></li>
+    </ul>
+  </li>
+  <li><a>Snowcamp</a></li>
+  <li><a href={getRelativeLocaleUrl(lang, '#venir')}>{trad.venue[lang]}</a></li>
+  <li><a>{trad.ticket[lang]}</a></li>
+  <li><a>{trad.videos[lang]}</a></li>
+  <li><a href={getRelativeLocaleUrl(lang, 'coc')}>{trad.coc[lang]}</a></li>
+  <li><a>EN</a></li>
+</ul>
