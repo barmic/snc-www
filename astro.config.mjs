@@ -7,7 +7,6 @@ const locales = ['en', 'fr'];
 // https://astro.build/config
 export default defineConfig({
   site: 'https://snowcamp.io',
-  trailingSlash: 'always',
   build: {
     format: 'directory'
   },
