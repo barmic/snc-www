@@ -1,48 +1,67 @@
 ---
 // {{ $sponsors := .previous_edition.sponsors }}
-import { t } from "../i18n/i18n";
-import SponsorsLogos from "./SponsorsLogos.astro";
+import { t } from '../i18n/i18n';
+import SponsorsLogos from './SponsorsLogos.astro';
+import Sponsor from './Sponsor.astro';
+
 export interface Props {
   year: number;
-  previousSponsors: any;
 }
-const { year, previousSponsors } = Astro.props;
+const { year } = Astro.props;
+const {host, protocol} = new URL(Astro.url);
+const response = await fetch(`${protocol}//${host}/editions/${year}.json`);
+const sponsors = await response.json();
+
 ---
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    & > :is(h2,h3) {
+      width: fit-content;
+    }
+  }
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    & > * {
+      min-width: 20%;
+    }
+  }
+</style>
 <section>
-  <div class="snc-sponsors" style="margin-top: 100px;">
-    <div class="snc-inner-bg">
-      <div class="past-snc-inner">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12 text-center">
-              <div class="snc-sponsors-heading-area">
-                <h2 class="snc-heading">
-                  <span class="back-heading"><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
-                  <span class="heading">Sponsors {year}</span>
-                </h2>
-                <p class="text">
-                  {t('previous_sponsors_thanks', year)}
-                </p>
-              </div>
-            </div>
-          </div>
-          { previousSponsors.sponsors.chamois && previousSponsors.sponsors.chamois.length ?
-            <SponsorsLogos sponsors={previousSponsors.sponsors.chamois} column_number={3} sponsor_title={t('sponsor_chamois')}></SponsorsLogos>
-          : ''}
-          { previousSponsors.sponsors.etoile && previousSponsors.sponsors.etoile.length ?
-            <SponsorsLogos sponsors={previousSponsors.sponsors.etoile} column_number={4} sponsor_title={t('sponsor_etoile')}></SponsorsLogos>
-          : ''}
-          { previousSponsors.sponsors.meetgreet && previousSponsors.sponsors.meetgreet.length ?
-            <SponsorsLogos sponsors={previousSponsors.sponsors.meetgreet} column_number={4} sponsor_title={t('sponsor_meetgreet')}></SponsorsLogos>
-          : ''}
-          { previousSponsors.sponsors.flocon && previousSponsors.sponsors.flocon.length ?
-            <SponsorsLogos sponsors={previousSponsors.sponsors.flocon} column_number={4} sponsor_title={t('sponsor_flocon')}></SponsorsLogos>
-          : ''}
-          { previousSponsors.sponsors.partners && previousSponsors.sponsors.partners ?
-            <SponsorsLogos sponsors={previousSponsors.sponsors.partners} column_number={3} sponsor_title={t('partners')}></SponsorsLogos>
-          : ''}
-        </div>
-      </div>
-    </div>
+  <h2>Sponsors {year}</h2>
+  <p>{t('previous_sponsors_thanks', year)}</p>
+
+  { sponsors.sponsors?.chamois?.length ? <h3>Sponsor Chamois 🥇</h3> : '' }
+  <div>
+    { sponsors.sponsors?.chamois?.map((sponsor) => (<Sponsor title={sponsor.name} img=`/${sponsor.logo}` href={sponsor.url.fr} />)) }
+  </div>
+
+  { sponsors.sponsors?.etoile?.length ? <h3>Sponsors Étoile ⭐</h3> : '' }
+  <div>
+    { sponsors.sponsors?.etoile?.map((sponsor) => (<Sponsor title={sponsor.name} img=`/${sponsor.logo}` href={sponsor.url.fr} />)) }
+  </div>
+
+  { sponsors.sponsors?.meetgreet?.length ? <h3>Sponsors Meet&Greet ⭐</h3> : '' }
+  <div>
+    { sponsors.sponsors?.meetgreet?.map((sponsor) => (<Sponsor title={sponsor.name} img=`/${sponsor.logo}` href={sponsor.url.fr} />)) }
+  </div>
+
+  { sponsors.sponsors?.flocon?.length ? <h3>Sponsors Flocon ❄️</h3> : '' }
+  <div>
+    { sponsors.sponsors?.flocon?.map((sponsor) => (<Sponsor title={sponsor.name} img=`/${sponsor.logo}` href={sponsor.url.fr} />)) }
+  </div>
+
+  { sponsors.partners?.flocon?.length ? <h3>Partenaires</h3> : '' }
+  <div>
+    { sponsors.partners?.flocon?.map((sponsor) => (<Sponsor title={sponsor.name} img=`/${sponsor.logo}` href={sponsor.url.fr} />)) }
   </div>
 </section>
