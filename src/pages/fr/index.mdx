@@ -3,6 +3,7 @@ layout: ../../layouts/main.astro
 title: Association SnowCamp
 description: Documents officiels de l'association
 ---
+import Polaroid from "../../components/Polaroid.astro";
 import Spotlight from '../../components/Spotlight.astro';
 import Columns3 from '../../components/Columns3.astro';
 import ShortDescription from '../../components/ShortDescription.astro';
@@ -87,9 +88,11 @@ Et encore plus de conseils [ici](https://docs.google.com/document/d/e/2PACX-1vRe
 
 Les Universités et les Conférences auront toutes lieux au ["WTC World Trade Center Grenoble"](http://www.congres-wtcgrenoble.com/fr), un Centre de Conférences au cœur de Grenoble.
 
-5 - 7 , place Robert Schuman
+5 - 7 , place Robert Schuman<br/>
 38025 Grenoble
 
+<div>
+  <Polaroid img="https://snowcamp.io/img/wtc.webp" title="WTC Grenoble" side="left" />
 Vous pouvez y accéder :
 
 - par la ligne B du Tram (direction Grenoble Presqu'île), arrêt "Palais De Justice - Gare"
@@ -99,4 +102,5 @@ Vous pouvez y accéder :
 - en train ou bus : utilisez le passage souterrain depuis la gare vers Europole
 - par avion : il y a des navettes d'aéroports : depuis Lyon Saint-Exupéry (17 rotations 7j/7) et depuis Genève Cointrin (3 rotations, 7j/7)
 - en [vélo](http://www.metromobilite.fr/velo.html)
+</div>
 

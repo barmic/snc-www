@@ -111,3 +111,11 @@ h1 {
 h2 {
   justify-self: center;
 }
+
+p {
+  margin-bottom: 3rem;
+}
+
+strong {
+  font-family: 'Luciole-Bold', sans-serif;
+}

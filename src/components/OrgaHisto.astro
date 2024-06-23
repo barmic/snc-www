@@ -1,0 +1,44 @@
+---
+interface Props {
+  past: Past;
+}
+interface Past {
+  editions: number[];
+  organizers: Organizer[];
+}
+interface Organizer {
+  name: string;
+  editions: boolean[];
+  honnor: boolean;
+}
+
+import organisation from '../data/organisation.json';
+
+export const past: Past = organisation.past;
+export const organizers = past.organizers.map(orga => {
+  return { ...orga, total: orga.editions.filter(o => o).length };
+});
+---
+<style>
+  td {
+    text-align: center;
+  }
+</style>
+<table>
+  <thead>
+  <tr>
+    <th></th>
+    {past.editions.map(edition => (<th>{edition}</th>))}
+    <th>Total</th>
+  </tr>
+  </thead>
+  <tbody>
+  {organizers.map((orga) => (
+    <tr>
+      <th>{orga.name}</th>
+      {orga.editions.map(edition => (<td>{edition && '✔' }</td>))}
+      <td>{orga.total}</td>
+    </tr>
+  ))}
+  </tbody>
+</table>
