@@ -1,6 +1,9 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const lang = (Astro.locals as any).lang;
+const path = (Astro.locals as any).path;
+const changeLang = lang === 'fr' ? path.replace('/fr/','/en/') : path.replace('/en/','/fr/');
+const targetLang = lang === 'en' ? 'fr' : 'en';
 
 const trad = {
   "what": {
@@ -71,7 +74,12 @@ const trad = {
     list-style-type: none;
     padding: 0;
   }
-  .menu > li {
+  li.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
   }
   li:has(> ul)::after {
     content: "▼";
@@ -97,12 +105,15 @@ const trad = {
   a:hover {
     color: var(--orange-on-main);
   }
+  img {
+    max-height: 1em;
+  }
 </style>
 <ul class="menu">
   <li>
     <a>Snowcamp</a>
     <ul>
-      <li><a href={getRelativeLocaleUrl(lang, '/snowcamp/#what')}>{trad.what[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, 'snowcamp')}>{trad.what[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, 'organisation')}>{trad.organisation[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, 'association')}>{trad.association[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, 'previous-editions')}>{trad.past_editions[lang]}</a></li>
@@ -124,5 +135,5 @@ const trad = {
   <li><a>{trad.ticket[lang]}</a></li>
   <li><a>{trad.videos[lang]}</a></li>
   <li><a href={getRelativeLocaleUrl(lang, 'coc')}>{trad.coc[lang]}</a></li>
-  <li><a>EN</a></li>
+  <li class="center"><a href={changeLang}><img class="snc-flag" src=`/img/${targetLang}.svg` alt="Switch to French"></a></li>
 </ul>

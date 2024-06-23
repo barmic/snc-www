@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Layout.astro
+layout: ../../layouts/main.astro
 title: Association SnowCamp
 description: Documents officiels de l'association
 ---
@@ -7,6 +7,23 @@ import Spotlight from '../../components/Spotlight.astro';
 import Columns3 from '../../components/Columns3.astro';
 import ShortDescription from '../../components/ShortDescription.astro';
 import TimelineCFP from '../../components/TimelineCFP.astro';
+import Button from '../../components/Button.astro';
+import Sponsor from '../../components/Sponsor.astro';
+import edition from '../../data/edition.json';
+export const startFormat = Intl.DateTimeFormat('fr', {
+  month: 'long',
+  day: 'numeric',
+});
+export const endFormat = Intl.DateTimeFormat('fr', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+export const opencfp = endFormat.format(new Date(edition.timeline.cfp.open.date));
+export const startDate = new Date(edition.start_date);
+export const start = startFormat.format(startDate);
+export const end = endFormat.format(new Date(edition.end_date));
+export const year = startDate.getFullYear();
 
 <Spotlight/>
 
@@ -39,7 +56,7 @@ import TimelineCFP from '../../components/TimelineCFP.astro';
     <img src="/img/themas.webp" alt="themas"/>
   </div>
   <div>
-Le CFP ouvre le 1er Septembre 2024 ! C'est le moment de préparer des sujets extraordinaires. Le CFP ouvrira ici :
+Le CFP ouvre le { opencfp } ! C'est le moment de préparer des sujets extraordinaires. Le CFP ouvrira ici :
 
 Quelques conseils :
 
@@ -52,11 +69,17 @@ Et encore plus de conseils [ici](https://docs.google.com/document/d/e/2PACX-1vRe
   </div>
 </div>
 
-# Sponsors 2025
+# Sponsors { year }
 
-> Ils nous ont déjà accordé leur confiance pour préparer ensemble l'édition 2025.
+> Ils nous ont déjà accordé leur confiance pour préparer ensemble l'édition { year }.
 
 > Un grand merci à nos sponsors !
+
+<Button title="Devenez sponsor !" href="https://google.fr"></Button>
+
+## Partenaires
+
+<Sponsor title="AlpesJUG" img="/img/partners/alpesjug.png" href="https://alpesjug.fr"></Sponsor>
 
 # Venir
 

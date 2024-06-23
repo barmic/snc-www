@@ -3,10 +3,6 @@ import edition from '../data/edition.json';
 const lang = (Astro.locals as any).lang;
 
 const startFormat = Intl.DateTimeFormat(lang, {
-  month: 'long',
-  day: 'numeric',
-});
-const endFormat = Intl.DateTimeFormat(lang, {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
