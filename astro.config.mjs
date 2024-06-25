@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import yaml from '@rollup/plugin-yaml';
 
 const defaultLocale = 'fr';
 const locales = ['en', 'fr'];
@@ -17,5 +18,8 @@ export default defineConfig({
       prefixDefaultLocale: true
     }
   },
-  integrations: [mdx()]
+  integrations: [mdx()],
+  vite: {
+    plugins: [yaml()]
+  }
 });
