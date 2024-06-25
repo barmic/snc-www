@@ -1,0 +1,59 @@
+start_date: "2025-01-22"
+end_date: "2025-01-25"
+timeline:
+  tremplin:
+  cfp:
+    open:
+      date: "2024-09-01"
+      fr: "Ouverture du CFP"
+      en: "CFP opens"
+    close:
+      date: "2024-10-15"
+      fr: "Femeture du CFP"
+      en: "CFP closes"
+    notification:
+      date: "2024-11-01"
+      fr: "Notifications"
+      en: "Notifications"
+  sponsorship:
+    prospectus: "https://drive.google.com/file/d/1hOHTGVXJfiQ0nJFJugivkNr3SwdEXuSF/view?usp=share_link"
+    open_datetime :
+      date: "2024-06-17T11:00:00.000"
+      fr: "17 juin 2024 à 11h00"
+      en: "17th of June 2024 at 11:00am"
+    subscribe_link : "https://docs.google.com/forms/d/e/1FAIpQLSf8fpWvTQTFy0tJnFcCCkQEttTUAnfM3GJ0ksNwG9tnX7FubQ/viewform?usp=sf_link"
+    type:
+      flocon:
+        title: "Flocon"
+        price: "1000 €"
+        number: 6
+        kakemono: true
+        places:
+          conferences: 2
+      etoile:
+        title: "Étoile"
+        price: "3500 €"
+        number: 12
+        booth_area: "3x3=9m²"
+        kakemono: false
+        places:
+          conferences: 3
+          booth: 2
+          speakers_dinner: 0
+    display: "current"
+    chamois: []
+    meetgreet: []
+    etoile: [
+    ]
+    flocon: [
+    ]
+    partners:
+      - name: "AlpesJUG"
+        logo: "img/partners/alpesjug.png"
+        url:
+          fr: "http://alpesjug.fr/"
+          en: "http://alpesjug.fr/"
+        description:
+          fr: "<b>AlpesJug</b> est le groupe des utilisateurs Java de la région grenobloise, et à l'origine du Snowcamp."
+          en: "<b>AlpesJug</b> is the Java User Group of the Grenoble area, and the initiator of the Snowcamp conference."
+
