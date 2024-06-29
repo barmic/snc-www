@@ -1,43 +1,97 @@
 ---
-import { t } from "../i18n/i18n";
-import { type SponsorType } from "./sponsor";
-import sponsors from '../data/sponsors.json';
+import { type SponsorType } from './sponsor';
+
+console.log(Astro.locals)
 
 interface Props {
 	sponsor: SponsorType;
-  cssClass: string;
+  active: boolean;
 }
-const { sponsor, cssClass } = Astro.props;
-
+const { sponsor, active } = Astro.props;
 ---
-<div class="snc-ticket">
-<div class={'single ' + cssClass} >
-  <div class="single-top">
-    <h2 class="title">{sponsor.title}</h2>
-    <h4 class="price">{sponsor.price}</h4>
-    <p>{t('sponsor_limit',sponsor.number)}</p>
-  </div>
-  <div class="single-bottom">
-    <ul class="list-unstyled list">
-      {sponsor.places.conferences ?
-      <li><i class="fa fa-check" aria-hidden="true"></i> {t('sponsor_places_conferences', sponsor.places.conferences)}</li>
-      : ''}
-      {sponsor.places.booth ?
-      <li><i class="fa fa-check" aria-hidden="true"></i> {t('sponsor_places_booth', sponsor.places.booth)}</li>
-      : ''}
-      {sponsor.booth_area ?
-      <li><i class="fa fa-check" aria-hidden="true"></i> {t('sponsor_booth_area', sponsor.booth_area)}</li>
-      : ''}
-      <li><i class="fa fa-check" aria-hidden="true"></i> {t('sponsor_logo_website')}</li>
-      <li><i class="fa fa-check" aria-hidden="true"></i> {t('sponsor_logo_billposting')}</li>
-      { sponsor.places && sponsor.places.speakers_dinner ? 
-      <li><i class="fa fa-check" aria-hidden="true"></i> {t('sponsor_places_speakers_dinner', sponsor.places.speakers_dinner)}</li>
-      : ''}
-      <li><i class="fa fa-check" aria-hidden="true"></i> {t('snowcamp_logo_usage')}</li>
-      {sponsor.kakemono ?
-        <li><i class="fa fa-check" aria-hidden="true"></i> {t('sponsor_kakemono')}</li>
-      : ''}
-      </ul>
-  </div>
-</div>
-</div>
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 1rem;
+    border-radius: 5px;
+    background-color: var(--main);
+    & > header > * {
+      color: var(--background);
+    }
+    & > header > h4 {
+      color: var(--background);
+    }
+  }
+  section.active {
+    background-color: var(--orange);
+    & > header > * {
+      color: var(--main);
+    }
+    & > header > h4 {
+      color: var(--background);
+    }
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background);
+    margin: 1ex;
+    list-style-type: none;
+    padding: 1ex 1rem;
+  }
+  li {
+    text-align: center;
+    &::before {
+      content: "🗸 ";
+      color: var(--green);
+    }
+    &.hidden {
+      display: none;
+    }
+  }
+  p {
+    display: none;
+  }
+  .en:lang(en) {
+    display: flex;
+  }
+  .fr:lang(fr) {
+    display: flex;
+  }
+</style>
+<section class={active ? "active" : ""}>
+  <header>
+    <h2>{sponsor.title}</h2>
+    <h4>{sponsor.price}</h4>
+    <p class={(Astro.locals as any).lang} lang="en">{`Limited to ${sponsor.number} sponsors`}</p>
+    <p class={(Astro.locals as any).lang} lang="fr">{`Limité à ${sponsor.number} sponsors`}</p>
+  </header>
+  <ul class={(Astro.locals as any).lang} lang="fr">
+    <li>{`${sponsor.places.conferences} entrées offertes pour participer aux sessions`}</li>
+    <li class={sponsor.places.booth || 'hidden'}>{`${sponsor.places.booth} entrées offertes sur l'espace sponsor uniquement`}</li>
+    <li class={sponsor.booth_area || 'hidden'}>{`Stand dans le hall d'exposition (${sponsor.booth_area})`}</li>
+    <li>Logo sur notre site web du SnowCamp</li>
+    <li>Affichage de votre logo sur le lieu de la conférence</li>
+    <li>Autorisation d'exploiter le logo SnowCamp pour votre communication</li>
+    <li class={sponsor.kakemono || 'hidden'}>Un kakémono (max 1m x 2m50)</li>
+  </ul>
+  <ul class={(Astro.locals as any).lang} lang="en">
+    <li class={sponsor.places.booth || 'hidden'}>{`${sponsor.places.conferences} free tickets to attend the sessions`}</li>
+    <li class={sponsor.booth_area || 'hidden'}>{`${sponsor.places.booth} free tickets for the sponsors space only`}</li>
+    <li>{`Booth in the exhibition hall (${sponsor.booth_area})`}</li>
+    <li>Your logo on the SnowCamp website</li>
+    <li>Your logo visible on the location of the conference</li>
+    <li>Authorisation to use the SnowCamp logo for your communications</li>
+    <li class={sponsor.kakemono || 'hidden'}>1 kakémono (max 1m x 2m50)</li>
+  </ul>
+</section>

@@ -23,10 +23,18 @@ const start = startFormatSnowcamp.format(new Date(edition.start_date));
 const end = endFormatSnowcamp.format(new Date(edition.end_date));
 ---
 <style>
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
   h2 {
     font-size: 24px;
     color: var(--orange);
   }
+
   .step {
     display: flex;
     flex-direction: column;
@@ -37,7 +45,7 @@ const end = endFormatSnowcamp.format(new Date(edition.end_date));
     border-style: solid;
   }
 </style>
-<div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+<div class="timeline">
   <div class="step">
     <h2>{edition.timeline.cfp.open[lang]}</h2>
     <p>{open}</p>
