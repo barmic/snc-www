@@ -5,6 +5,7 @@ title: Sponsors
 import sponsors from '../../data/sponsors.json';
 import SponsorFormula from '../../components/SponsorFormula.astro';
 import Button from '../../components/Button.astro';
+import DateTimeChangingChild from '../../components/DateTimeChangingChild.astro';
 
 # Pourquoi devenir sponsor ?
 
@@ -47,5 +48,17 @@ Cela détermine votre classement pour devenir sponsor et donc l'emplacement qui 
 1. Suite à votre enregistrement, l'équipe d'organisation Snowcamp vous envoie la facture à payer.
 A partir de la réception de la facture par le sponsor, le sponsor a 90 jours pour réaliser le paiement.
 Si ce délai n'est pas respecté par un sponsor, l'organisation du Snowcamp se donne le droit d'annuler le contrat avec ce sponsoring pour laisser la place à un autre sponsor.
+
+<DateTimeChangingChild beginDate={Date.parse('2024-06-17T11:00:00.000')}>
+  <p class="text-big-italic" slot="before">
+    L'enregistrement pour le sponsoring du Snowcamp 2025 ouvrira le
+  </p>
+  <p class="text-big-italic" slot="doing">
+    L'enregistrement pour le sponsoring du Snowcamp 2025 est ouvert depuis le
+  </p>
+  <p class="text-big-italic" slot="after">
+    AFTER
+  </p>
+</DateTimeChangingChild>
 
 Pour toute information vous pouvez nous contacter par email
