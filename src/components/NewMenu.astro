@@ -139,7 +139,7 @@ const trad = {
   </li>
   <li><a>Snowcamp</a></li>
   <li><a href={getRelativeLocaleUrl(lang, '#venir')}>{trad.venue[lang]}</a></li>
-  <li><a>{trad.ticket[lang]}</a></li>
+  <li><a href={getRelativeLocaleUrl(lang, 'tickets')}>{trad.ticket[lang]}</a></li>
   <li><a>{trad.videos[lang]}</a></li>
   <li><a href={getRelativeLocaleUrl(lang, 'coc')}>{trad.coc[lang]}</a></li>
   <li class="center"><a href={changeLang}><img class="snc-flag" src=`/img/${targetLang}.svg` alt="Switch to French"></a></li>

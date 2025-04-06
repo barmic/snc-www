@@ -11,7 +11,9 @@ import NewMenu from '../components/NewMenu.astro';
 import '../styles/reset.css';
 import '../styles/style.css';
 import '../styles/main.css';
-import 'font-awesome/css/font-awesome.css'
+import 'font-awesome/css/font-awesome.css';
+import sponsors from '../data/sponsors.json';
+import ticket from '../data/ticket.json';
 
 const {frontmatter} = Astro.props;
 ---
@@ -84,3 +86,50 @@ const {frontmatter} = Astro.props;
   </main>
   <Footer></Footer>
 </body>
+
+<script define:vars={{ sponsors, ticket }}>
+  const ticketing = (ticket) => {
+    const openingTime = Date.parse(ticket.store.classic.beginDate);
+    const closingTime = Date.parse(ticket.store.classic.endDate);
+    const now = new Date().getTime();
+    if (now < openingTime) {
+      return ['ticketOpened', 'ticketClosed'];
+    } else if (now < closingTime) {
+      return ['ticketClosed', 'ticketBefore'];
+    } else {
+      return ['ticketOpened', 'ticketBefore'];
+    }
+  }
+  const sponsoring = (sponsors) => {
+    const openingTime = Date.parse(sponsors.sponsorship.open_datetime.date);
+    const remainEtoile = sponsors.sponsorship.type.etoile.number - sponsors.etoile.length;
+    const remainFlocon = sponsors.sponsorship.type.flocon.number - sponsors.flocon.length;
+    const now = new Date().getTime();
+    if (now < openingTime) {
+      return ['sponsorOpened', 'sponsorClosed'];
+    } else if (remainEtoile > 0 || remainFlocon > 0) {
+      return ['sponsorClosed', 'sponsorBefore'];
+    } else {
+      return ['sponsorOpened', 'sponsorBefore'];
+    }
+  }
+  const computeStyle = () => {
+    const classToHide = [
+      ...sponsoring(sponsors),
+      ...ticketing(ticket),
+    ];
+
+    classToHide.sort();
+
+    return classToHide
+      .map((name) => `.${name} {display:none !important;}`)
+      .join('\n');
+  }
+
+  const style = document.createElement('style');
+  style.id = 'conditional';
+  document.head.appendChild(style);
+
+  style.textContent = computeStyle();
+  setInterval(() => style.textContent = computeStyle(), 10000);
+</script>

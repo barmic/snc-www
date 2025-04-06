@@ -2,9 +2,10 @@
 interface Props {
   title: string;
   href: string;
+  className?: string;
 }
 
-const { href, title } = Astro.props;
+const { href, title, className } = Astro.props;
 ---
 <style>
   a {
@@ -24,4 +25,4 @@ const { href, title } = Astro.props;
     background-color: var(--orange);
   }
 </style>
-<a href={href}>{title}</a>
+<a href={href} class={className}>{title}</a>
