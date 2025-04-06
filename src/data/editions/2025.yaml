@@ -1,6 +1,9 @@
 start_date: "2025-01-22"
 end_date: "2025-01-25"
 timeline:
+  main:
+    start_date: "2025-01-22"
+    end_date: "2025-01-25"
   tremplin:
   cfp:
     open:
@@ -9,7 +12,7 @@ timeline:
       en: "CFP opens"
     close:
       date: "2024-10-15"
-      fr: "Femeture du CFP"
+      fr: "Fermeture du CFP"
       en: "CFP closes"
     notification:
       date: "2024-11-01"
@@ -43,10 +46,8 @@ timeline:
     display: "current"
     chamois: []
     meetgreet: []
-    etoile: [
-    ]
-    flocon: [
-    ]
+    etoile: []
+    flocon: []
     partners:
       - name: "AlpesJUG"
         logo: "img/partners/alpesjug.png"
@@ -56,4 +57,3 @@ timeline:
         description:
           fr: "<b>AlpesJug</b> est le groupe des utilisateurs Java de la région grenobloise, et à l'origine du Snowcamp."
           en: "<b>AlpesJug</b> is the Java User Group of the Grenoble area, and the initiator of the Snowcamp conference."
-

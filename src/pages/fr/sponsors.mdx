@@ -5,7 +5,7 @@ title: Sponsors
 import sponsors from '../../data/sponsors.json';
 import SponsorFormula from '../../components/SponsorFormula.astro';
 import Button from '../../components/Button.astro';
-import DateTimeChangingChild from '../../components/DateTimeChangingChild.astro';
+import edition from '../../data/edition.json';
 
 # Pourquoi devenir sponsor ?
 
@@ -49,16 +49,17 @@ Cela détermine votre classement pour devenir sponsor et donc l'emplacement qui 
 A partir de la réception de la facture par le sponsor, le sponsor a 90 jours pour réaliser le paiement.
 Si ce délai n'est pas respecté par un sponsor, l'organisation du Snowcamp se donne le droit d'annuler le contrat avec ce sponsoring pour laisser la place à un autre sponsor.
 
-<DateTimeChangingChild beginDate={Date.parse('2024-06-17T11:00:00.000')}>
-  <p class="text-big-italic" slot="before">
-    L'enregistrement pour le sponsoring du Snowcamp 2025 ouvrira le
-  </p>
-  <p class="text-big-italic" slot="doing">
-    L'enregistrement pour le sponsoring du Snowcamp 2025 est ouvert depuis le
-  </p>
-  <p class="text-big-italic" slot="after">
-    AFTER
-  </p>
-</DateTimeChangingChild>
+<p className="sponsorBefore">L'enregistrement pour le sponsoring du Snowcamp {edition.year} ouvrira le</p>
+<p className="sponsorOpened">L'enregistrement pour le sponsoring du Snowcamp {edition.year} est ouvert depuis le</p>
+
+<div style="text-align: center; font-weight: bold; font-size: 1.3em; margin: 10px 0" className="sponsorBefore">{sponsors.sponsorship.open_datetime.fr}</div>
+<div style="text-align: center; font-weight: bold; font-size: 1.3em; margin: 10px 0" className="sponsorOpened">{sponsors.sponsorship.open_datetime.fr}</div>
+
+<p className="sponsorBefore">Veuillez revenir à partir de ce moment pour vous enregistrer. Nous enverrons un message de rappel aux entreprises qui ont déjà été sponsors.</p>
+<p className="sponsorOpened">Il reste actuellement {12 - sponsors.etoile.length} places de sponsor(s) Etoile et {6 - sponsors.flocon.length} places de sponsor(s) Flocon.</p>
+
+<Button className="sponsorOpened" title="Formulaire d'inscription" href="${sponsors.sponsorship.subscribe_link}"></Button>
+
+<p className="sponsorClosed">La campagne de sponsoring du snowcamp {edition.year} est actuellement terminée. Il y a plus de possibilités de devenir sponsor pour la conférence. Vous pouvez nous contacter par email pour indiquer que vous souhaitez être parmi notre liste de contact pour la campagne de sponsoring de l'année suivante.</p>
 
 Pour toute information vous pouvez nous contacter par email
