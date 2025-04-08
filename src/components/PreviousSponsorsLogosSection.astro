@@ -7,6 +7,12 @@ export interface Props {
   previousYearData: any;
 }
 const { year, previousYearData } = Astro.props;
+console.log(Astro.url)
+const {host, protocol} = new URL(Astro.url);
+console.log(`${protocol}//${host}/editions/${year}.json`)
+const response = await fetch(`${protocol}//${host}/editions/${year}.json`);
+const sponsors = await response.json();
+
 ---
 <section>
   <div class="snc-sponsors" style="margin-top: 100px;">

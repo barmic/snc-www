@@ -48,7 +48,7 @@ const trad = {
   },
   "ticket": {
     "fr": "Billeterie",
-    "en": "Venue",
+    "en": "Tickets",
   },
   "videos": {
     "fr": "Vidéos",
@@ -57,6 +57,22 @@ const trad = {
   "coc": {
     "fr": "CDC",
     "en": "COC",
+  },
+  "program": {
+    "fr": "Programme",
+    "en": "Program",
+  },
+  "conference": {
+    "fr": "Conférence",
+    "en": "Conference",
+  },
+  "tremplin": {
+    "fr": "le Tremplin",
+    "en": "Tremplin",
+  },
+  "editorialLine": {
+    "fr": "Ligne éditoriale",
+    "en": "Editorial line",
   },
 }
 ---
@@ -126,7 +142,15 @@ const trad = {
       <li><a href={getRelativeLocaleUrl(lang, 'previous-editions')}>{trad.past_editions[lang]}</a></li>
     </ul>
   </li>
-  <li><a>CFP</a></li>
+  <li><a href="https://app.voxxr.in/events/snowcamp25/schedule">{trad.program[lang]}</a></li>
+  <li>
+    <a>CFP</a>
+    <ul>
+      <li><a href={getRelativeLocaleUrl(lang, 'snowcamp')}>{trad.conference[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, 'tremplin')}>{trad.tremplin[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, 'snowcamp')}>{trad.editorialLine[lang]}</a></li>
+    </ul>
+  </li>
   <li>
     <a>Sponsors</a>
     <ul>
@@ -137,7 +161,6 @@ const trad = {
       <li><a href={getRelativeLocaleUrl(lang, '/sponsors_guide/')}>{trad.sponsor_guide_title[lang]}</a></li>
     </ul>
   </li>
-  <li><a>Snowcamp</a></li>
   <li><a href={getRelativeLocaleUrl(lang, '#venir')}>{trad.venue[lang]}</a></li>
   <li><a href={getRelativeLocaleUrl(lang, 'tickets')}>{trad.ticket[lang]}</a></li>
   <li><a>{trad.videos[lang]}</a></li>

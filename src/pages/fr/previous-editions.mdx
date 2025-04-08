@@ -8,7 +8,7 @@ import organisation from '../../data/organisation.json';
 import edition from '../../data/edition.json';
 
 export const editions = organisation.past.editions
-  .reverse()
+  .toReversed()
   .filter((year) => new Date(edition.start_date).getFullYear() !== year);
 
 {editions.map((year) => (<PreviousSponsorsLogosSection year={year} />))}
