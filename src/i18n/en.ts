@@ -6,90 +6,17 @@ export function init() {
     const i18n: any = {};
     i18n.program_translation = 'Conference';
     i18n.cfp_program_translation = 'Call For Proposals';
-    i18n.ticketlabel = 'Tickets';
-    i18n.what_is_this = "What's this?";
-    i18n.in_2017 = 'In 2017';
-    i18n.become_sponsor = 'Become a sponsor';
-    i18n.our_sponsors = 'Our sponsors';
     i18n.past_editions = 'Past editions';
     i18n.venue = 'Venue';
     i18n.tickets = 'Tickets';
     i18n.videos = 'Videos';
     i18n.coc = 'CoC';
-    i18n.conference_desc = 'A unique conference for devs, ops and architects';
-    i18n.universities_title = 'Universities';
-    i18n.universities_desc = 'A day of training <br/>(choice of 2 trainings of 3 hours long).';
-    i18n.conference_title = 'Conferences';
-    i18n.conference_desc = '2 days of conferences with 45mn talks.';
-    i18n.unconference_title = 'Unconference';
-    i18n.unconference_desc = 'A day of exchange on the skiing slopes gathering speakers and attendees.';
-
-    i18n.innovation_research_title = 'Innovation and research';
-    i18n.innovation_research_desc = 'A high-level technical conference gathering engineers and researchers';
-    i18n.innovation_title = 'Innovation';
-    i18n.innovation_desc = 'Learn about today\'s and tomorrow\'s tools, frameworks and technologies.';
-    i18n.discussion_title = 'Exchange';
-    i18n.discussion_desc = 'Meet and exchange with other devs, ops, architects and speakers.';
-    i18n.research_title = 'Research';
-    i18n.research_desc = 'Discover trending works of researchers.';
-
-    i18n.cfp_open_desc=`<p>The CFP is open! Let's submit awesome subjects here:
-      <br><i class="fa fa-bullhorn"></i>&nbsp;<a href="${cfp.url}" target="_blank">${cfp.url}</a></p>
-      <br/>
-      <p>Some hints:</p>
-      <ul>
-        <li>Choose well your title</li>
-        <li>Explain what the attendees will see and learn</li>
-        <li>Make demos</li>
-        <li>Submit early!</li>
-      </ul>
-      <br/>
-      <p>Sessions can be made in French or English. The talks are selected
-        by a neutral and open-minded committee. So, take the plunge!
-      </p>`;
-    i18n.cfp_open_soon_desc=`<p>The CFP opens on the ${cfp.dates.open_date.en}!
-      Let's prepare awesome subjects! The CFP will be open here: <a href="${cfp.url}" target="_blank"><i class="fa fa-bullhorn"> ${cfp.url}</i></a></p>
-      <br/>
-      <p>Some hints:
-      <ul>
-        <li>Choose well your title</li>
-        <li>Explain what the attendees will see and learn</li>
-        <li>Make demos</li>
-        <li>Submit early!</li>
-      </ul>
-      </p>
-      <br/>
-      <p>Sessions can be made in French or English. The talks are selected
-        by a neutral and open-minded committee. So, take the plunge!
-      </p>`;
-    i18n.cfp_closed_desc=`<p>Le CFP est désormais fermé !</p>`
-    i18n.cfp_other_desc=`<p>The CFP is not yet open... Be patient!
-      <br>Follow us on Twitter <a class="sp-tw" href="https://twitter.com/SnowCampIO"><i class="fa fa-twitter"></i></a> to be notified when the CFP opens.</p>`;
     i18n.cfp_opens = 'CFP opens';
     i18n.cfp_closes = 'CFP closes';
     i18n.cfp_notifications = 'Notifications';
 
     i18n.schedule_title = 'Schedule';
     i18n.schedule_desc = 'The schedule can be found here: ';
-
-    i18n.venue_title = 'Venue';
-    i18n.venue_desc = 'The schedule can be found here: ';
-    i18n.venue_location = `Universities and conferences will take place at
-      <a href="http://www.congres-wtcgrenoble.com/en target="_blank"><strong>"WTC World Trade Center Grenoble"</strong></a>,
-      a conference center in Grenoble center.`;
-    i18n.venue_access=`You can access:
-      <ul>
-        <li>by tramway line B (towards Grenoble Presqu'île), stop "Palais De Justice - Gare"</li>
-        <li>by car (you can park at the parking Doyen Weil or Europole Gare)
-          <ul>
-            <li>when arriving from Lyon or Valence, take the Europole-Gares exit and follow signs to Europole.</li>
-            <li>when arriving from Chambéry, Gap or Sisteron,  take "the rocade Sud", follow signs to Lyon by highway, take the Europole exit and follow signs to Europole</li>
-          </ul>
-        </li>
-        <li>by train or bus: use the underground passage between the railway station and Europole</li>
-        <li>by plane: there are airport shuttles: from Lyon Saint-Exupéry (17 round trips per day) and from Genève Cointrin (6 round trips per day)</li>
-        <li>by <a href="http://www.metromobilite.fr/velo.html" target="_blank">bike</a></li>
-      </ul>`;
 
     i18n.sponsor_chamois = 'Sponsor Chamois &#129351;';
     i18n.sponsor_etoile = 'Sponsors Étoile ⭐';
@@ -100,19 +27,6 @@ export function init() {
     i18n.sponsor_previous_year = 'They were sponsors the last edition';
     i18n.sponsor_thanks_previous_year = (year: number) => `They placed their trust to prepare the edition ${year} <span>
       </span>together.<br/>Many thanks to our sponsors!`;
-    i18n.sponsor_limit = (num: number) => num > 1 ? `Limited to ${num} sponsors` : `Limited to ${num} sponsor`;
-    i18n.sponsor_places_conferences = (num: number) => `${num} free tickets to attend the sessions`;
-    i18n.sponsor_places_booth = (num: number) => `${num} free tickets for the sponsors space only`;
-    i18n.sponsor_places_speakers_dinner = (num: number) => `${num} place for the speakers dinner`;
-    i18n.sponsor_booth_area = (area: string) => `Booth in the exhibition hall (${area})`;
-    i18n.sponsor_kakemono = '1 kakémono (max 1m x 2m50)';
-    i18n.sponsor_logo_pass = 'Your logo on the attendees pass';
-    i18n.sponsor_logo_website = 'Your logo on the SnowCamp website';
-    i18n.sponsor_logo_billposting  = 'Your logo visible on the location of the conference';
-    i18n.sponsor_logo_pass_strap = 'Your logo on pass straps';
-    i18n.sponsor_keynote_talk = (duration: number) => `Free keynote (${duration })`;
-    i18n.snowcamp_logo_usage = 'Authorisation to use the SnowCamp logo for your communications';
-    i18n.sponsorship_prospectus = 'Sponsorship Prospectus';
     i18n.contact_us = 'Contact us';
     i18n.why_become_sponsor='Why become sponsor?';
     i18n.sponsor_options='Sponsoring options';

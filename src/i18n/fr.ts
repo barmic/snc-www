@@ -6,68 +6,11 @@ export function init() {
     const i18n: any = {};
     i18n.program_translation = 'Conférence';
     i18n.cfp_program_translation = 'Call For Proposals';
-    i18n.ticketlabel = 'Tickets';
-    i18n.what_is_this = "C'est quoi ?";
-    i18n.in_2017 = 'En 2017';
-    i18n.become_sponsor = 'Devenez Sponsor';
-    i18n.our_sponsors = 'Nos sponsors';
     i18n.past_editions = 'Éditions précédentes';
     i18n.venue = 'Venir';
     i18n.tickets = 'Billeterie';
     i18n.videos = 'Vidéos';
     i18n.coc = 'CdC';
-    i18n.conference_desc = 'Une conférence unique pour les devs, les ops et les archis';
-    i18n.universities_title = 'Universités';
-    i18n.universities_desc = 'Une journée de formation en profondeur<br/>(2 formations de 3 heures au choix).';
-    i18n.conference_title = 'Conférences';
-    i18n.conference_desc = '2 jours de conférences avec des présentations de 45 minutes.';
-    i18n.unconference_title = 'Unconference';
-    i18n.unconference_desc = 'Une journée d\'échange sur les pistes mêlant orateurs et participants.';
-
-    i18n.innovation_research_title = 'Innovation &amp; Recherche';
-    i18n.innovation_research_desc = 'Une conférence à haut niveau technique réunissant des ingénieurs et des académiques';
-    i18n.innovation_title = 'Innovation';
-    i18n.innovation_desc = 'Découvrez les outils, frameworks et technologies d\'aujourd\'hui et de demain.';
-    i18n.discussion_title = 'Échange';
-    i18n.discussion_desc = 'Rencontrez et échangez avec d\'autres devs, ops, archis et orateurs.';
-    i18n.research_title = 'Recherche';
-    i18n.research_desc = 'Découvrez les travaux des chercheurs sur les tendances et sujets du moment.';
-
-    i18n.cfp_open_desc=`<p>Le CFP est ouvert ! C'est le moment de soumettre des sujets extraordinaires ici :
-    <br><i class="fa fa-bullhorn"></i>&nbsp;<a href="${cfp.url}" target="_blank">${cfp.url}</a></p>
-    <br/>
-    <p>Quelques conseils :</p>
-    <ul>
-    <li>Choisissez bien votre titre</li>
-    <li>Expliquez ce que les participants vont voir et apprendre</li>
-    <li>Faites des démos</li>
-    <li>Soumettez tôt !</li>
-    <li>Plus de conseils <a href="https://docs.google.com/document/d/e/2PACX-1vReWAaCbafJqc0cCo2vhKWnAVoiHk3Tq561y4GseXvTyOV7cSk6lN2c_feWEWZBIA/pub" target="_blank">ici</a></li>
-    </ul>
-    <br/>
-    <p>Les sessions peuvent être proposées en français ou en anglais. Les présentations sont sélectionnées
-    par un comité neutre et ouvert. Alors lancez-vous !
-    </p>`;
-    i18n.cfp_open_soon_desc=`<p>Le CFP ouvre le ${cfp.dates.open_date.fr } !
-    C'est le moment de préparer des sujets extraordinaires. Le CFP ouvrira ici : <i class="fa fa-bullhorn"></i></p>
-    <br/>
-    <p>Quelques conseils :
-    <ul>
-    <li>Choisissez bien votre titre</li>
-    <li>Expliquez ce que les participants vont voir et apprendre</li>
-    <li>Faites des démos</li>
-    <li>Soumettez tôt !</li>
-    </ul>
-    <span>Et encore plus de conseils <a href="https://docs.google.com/document/d/e/2PACX-1vReWAaCbafJqc0cCo2vhKWnAVoiHk3Tq561y4GseXvTyOV7cSk6lN2c_feWEWZBIA/pub">ici</a>.</span>
-    </p>
-    <br/>
-    <p>Les sessions peuvent être proposées en français ou en anglais. Les présentations sont sélectionnées
-    par un comité neutre et ouvert. Alors lancez-vous !
-    </p>`;
-    i18n.cfp_closed_desc=`<p>Le CFP est désormais fermé !</p>`;
-    i18n.cfp_other_desc=`<p>Le CFP n'est pas encore ouvert... Soyez patients !
-    <br>Suivez-nous sur Twitter <a class="sp-tw" href="https://twitter.com/SnowCampIO"><i class="fa fa-twitter"></i></a> pour être notifiés de
-   l'ouverture du CFP.</p>`;
     i18n.cfp_opens = 'Ouverture du CFP';
     i18n.cfp_closes = 'Fermeture du CFP';
     i18n.cfp_notifications = 'Notifications';
@@ -75,26 +18,6 @@ export function init() {
     i18n.schedule_title = 'Agenda';
     i18n.schedule_desc = 'L\'agenda de SnowCamp peut être consulté à ce lien : ';
 
-    i18n.venue_title = 'Venir';
-    i18n.venue_desc = 'SnowCamp se déroulera au Centre de Congrès du WTC (World Trade Center) de Grenoble à la fois pour les Universités et les Conférences.';
-    i18n.venue_location = `Les Universités et les Conférences auront toutes lieux au
-      <a href="http://www.congres-wtcgrenoble.com/fr" target="_blank"><strong>"WTC World Trade Center Grenoble"</strong></a>,
-      un Centre de Conférences au cœur de Grenoble.`;
-    i18n.venue_access=`Vous pouvez y accéder :
-      <ul>
-        <li>par la ligne B du Tram (direction Grenoble Presqu'île), arrêt "Palais De Justice - Gare"</li>
-        <li>en voiture (vous pouvez vous garer aux parkings Doyen Weil ou d'Europole Gare)
-        <ul>
-          <li>en arrivant de Lyon ou de Valence, prenez la sortie d'autoroute "Europole - Gares" et suivre la direction Europole</li>
-          <li>en arrivant de Chambéry, Gap ou Sisteron, prenez la rocade sud, suivre la direction Lyon par l'autoroute, puis la
-          sortie "Europole - Gares" et suivre la direction Europole</li>
-        </ul>
-        </li>
-        <li>en train ou bus : utilisez le passage souterrain depuis la gare vers Europole</li>
-        <li>par avion : il y a des navettes d'aéroports : depuis Lyon Saint-Exupéry (17 rotations
-        7j/7) et depuis Genève Cointrin (3 rotations, 7j/7)</li>
-        <li>en <a href="http://www.metromobilite.fr/velo.html" target="_blank">vélo</a></li>
-      </ul>`;
     i18n.sponsor_chamois = 'Sponsor Chamois &#129351;';
     i18n.sponsor_etoile = 'Sponsors Étoile ⭐';
     i18n.sponsor_flocon = 'Sponsors Flocon ❄️';
@@ -104,19 +27,6 @@ export function init() {
     i18n.sponsor_previous_year = 'Ils étaient sponsors l\'édition précédente';
     i18n.sponsor_thanks_previous_year = (year:number) => `Ils nous ont accordé leur confiance pour préparer ensemble l'édition ${year}.
       <br/>Un grand merci à nos sponsors !`;
-    i18n.sponsor_limit = (num: number) => num > 1 ? `Limité à ${num} sponsors` : `Limité à ${num} sponsor`;
-    i18n.sponsor_places_conferences = (num: number) => `${num} entrées offertes pour participer aux sessions`;
-    i18n.sponsor_places_booth = (num: number) => `${num } entrées offertes sur l'espace sponsor uniquement`;
-    i18n.sponsor_places_speakers_dinner = (num: number) => `${num} place pour le speakers dinner`;
-    i18n.sponsor_booth_area = (area: string) => `Stand dans le hall d'exposition (${area})`;
-    i18n.sponsor_kakemono = 'Un kakémono (max 1m x 2m50)';
-    i18n.sponsor_logo_pass = 'Logo sur badges portés par les participants';
-    i18n.sponsor_logo_website = 'Logo sur notre site web du SnowCamp';
-    i18n.sponsor_logo_billposting  = 'Affichage de votre logo sur le lieu de la conférence';
-    i18n.sponsor_logo_pass_strap = 'Logo sur les tours de cou';
-    i18n.sponsor_keynote_talk = (duration: number) => `Présentation de votre choix lors d'une session plénière (${duration })`;
-    i18n.snowcamp_logo_usage = 'Autorisation d\'exploiter le logo SnowCamp pour votre communication';
-    i18n.sponsorship_prospectus = 'Plaquette Sponsors';
     i18n.contact_us = 'Nous contacter';
     i18n.why_become_sponsor='Pourquoi devenir sponsor ?';
     i18n.sponsor_options='Les formules de sponsoring';
