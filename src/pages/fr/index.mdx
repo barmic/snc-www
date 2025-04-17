@@ -3,6 +3,10 @@ layout: ../../layouts/main.astro
 title: Association SnowCamp
 description: Documents officiels de l'association
 ---
+const currentUrl = new URL("/editions/current.json", Astro.url);
+const response = await fetch(currentUrl);
+const current = await response.json();
+---
 import Polaroid from "../../components/Polaroid.astro";
 import Spotlight from '../../components/Spotlight.astro';
 import Columns3 from '../../components/Columns3.astro';
@@ -10,8 +14,7 @@ import ShortDescription from '../../components/ShortDescription.astro';
 import TimelineCFP from '../../components/TimelineCFP.astro';
 import Button from '../../components/Button.astro';
 import Sponsor from '../../components/Sponsor.astro';
-import edition from '../../data/edition.json';
-import current from '../../data/editions/2025.yaml';
+
 export const startFormat = Intl.DateTimeFormat('fr', {
   month: 'long',
   day: 'numeric',
@@ -21,10 +24,10 @@ export const endFormat = Intl.DateTimeFormat('fr', {
   month: 'long',
   day: 'numeric',
 });
-export const opencfp = endFormat.format(new Date(edition.timeline.cfp.open.date));
-export const startDate = new Date(edition.start_date);
+export const opencfp = endFormat.format(new Date(current.timeline.cfp.open));
+export const startDate = new Date(current.start_date);
 export const start = startFormat.format(startDate);
-export const end = endFormat.format(new Date(edition.end_date));
+export const end = endFormat.format(new Date(current.end_date));
 export const year = startDate.getFullYear();
 
 <Spotlight/>

@@ -3,7 +3,6 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 export interface Props {
 	title: string;
 }
-const { title } = Astro.props;
 const lang = (Astro.locals as any).lang;
 
 import Footer from '../components/Footer.astro';
@@ -12,8 +11,13 @@ import '../styles/reset.css';
 import '../styles/style.css';
 import '../styles/main.css';
 import 'font-awesome/css/font-awesome.css';
-import sponsors from '../data/sponsors.json';
-import ticket from '../data/ticket.json';
+
+const currentUrl = new URL("/editions/current.json", Astro.url);
+const response = await fetch(currentUrl);
+const current = await response.json();
+
+const sponsors = current.sponsorship;
+const timeline = current.timeline;
 
 const {frontmatter} = Astro.props;
 ---
@@ -87,23 +91,23 @@ const {frontmatter} = Astro.props;
   <Footer></Footer>
 </body>
 
-<script define:vars={{ sponsors, ticket }}>
-  const ticketing = (ticket) => {
-    const openingTime = Date.parse(ticket.store.classic.beginDate);
-    const closingTime = Date.parse(ticket.store.classic.endDate);
+<script id="esnlrtsnrt" define:vars={{ sponsors, timeline }}>
+  const hideTimeline = (timelineEvent, name) => {
+    const openingTime = Date.parse(timelineEvent.open);
+    const closingTime = Date.parse(timelineEvent.close);
     const now = new Date().getTime();
     if (now < openingTime) {
-      return ['ticketOpened', 'ticketClosed'];
+      return [`${name}Opened`, `${name}Closed`];
     } else if (now < closingTime) {
-      return ['ticketClosed', 'ticketBefore'];
+      return [`${name}Closed`, `${name}Before`];
     } else {
-      return ['ticketOpened', 'ticketBefore'];
+      return [`${name}Opened`, `${name}Before`];
     }
   }
-  const sponsoring = (sponsors) => {
-    const openingTime = Date.parse(sponsors.sponsorship.open_datetime.date);
-    const remainEtoile = sponsors.sponsorship.type.etoile.number - sponsors.etoile.length;
-    const remainFlocon = sponsors.sponsorship.type.flocon.number - sponsors.flocon.length;
+  const sponsoring = (sponsors, timeline) => {
+    const openingTime = Date.parse(timeline.open);
+    const remainEtoile = sponsors.type.etoile.number - sponsors.etoile.length;
+    const remainFlocon = sponsors.type.flocon.number - sponsors.flocon.length;
     const now = new Date().getTime();
     if (now < openingTime) {
       return ['sponsorOpened', 'sponsorClosed'];
@@ -115,8 +119,8 @@ const {frontmatter} = Astro.props;
   }
   const computeStyle = () => {
     const classToHide = [
-      ...sponsoring(sponsors),
-      ...ticketing(ticket),
+      ...sponsoring(sponsors, timeline.sponsor),
+      ...Object.keys(timeline).filter((timel) => timel !== 'sponsor').flatMap((timel) => hideTimeline(timeline[timel], timel)),
     ];
 
     classToHide.sort();
