@@ -3,20 +3,6 @@ layout: ../../layouts/main.astro
 title: Éditions précédentes
 description: Éditions précédentes
 ---
-import parseDate from '../../utils.js';
-import edition from '../../data/current.yaml';
-import organisation from '../../data/organisation.yaml';
+import PreviousEditions from "../../components/PreviousEditions.astro";
 
-export const first = 2016;
-export const currentYear = parseDate(edition.start_date).getFullYear();
-export const editions = [...Array(2026 - 2016).keys()].map((offset) => offset + 2016);
-
-{editions}
-
-{ editions.map((year) => (# {year}))
-
-}
-
-| Year | Program | Photos | Sources | Sponsors |
-|---|---|---|---|---|
-| 1 | 2 | 2 | 2 | 2 |
+<PreviousEditions/>

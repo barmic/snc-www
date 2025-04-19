@@ -3,12 +3,6 @@ layout: ../../layouts/main.astro
 title: Éditions précédentes
 description: Éditions précédentes
 ---
-import parseDate from '../../utils.js';
-import edition from '../../data/current.yaml';
-import organisation from '../../data/organisation.yaml';
+import PreviousEditions from "../../components/PreviousEditions.astro";
 
-export const editions = organisation.past.editions
-  .toReversed()
-  .filter((year) => parseDate(edition.start_date).getFullYear() !== year);
-
-{editions.map((year) => (<PreviousSponsorsLogosSection year={year} />))}
+<PreviousEditions/>

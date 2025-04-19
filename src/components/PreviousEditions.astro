@@ -1,7 +1,6 @@
 ---
-import parseDate from '../../utils.js';
-import edition from '../../data/current.yaml';
-import Layout from '../../layouts/main.astro';
+import parseDate from '../utils.js';
+import edition from '../data/current.yaml';
 
 const lang = (Astro.locals as any).lang as language;
 type translation = {fr: string, en: string};
@@ -79,32 +78,30 @@ const trad: {[key: string]: translation} = {
     margin-bottom: 0;
   }
 </style>
-<Layout title={trad['title'][lang]}>
-  <h2>{trad['title'][lang]}</h2>
-    { previous_years.map((py, idxYear:number) => (
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr [sponsor] 1fr; place-items: center;">
-        <div style="grid-column-start: 1; grid-column-end: 5"><h4>{parseDate(py.start_date).getFullYear()} ({trad['edition'][lang]} nº{previous_years.length - idxYear})</h4></div>
-        <p><a href={py.program_link} target="program">{trad['program'][lang]}</a></p>
-        { py.album_link &&
-            <p><a href={py.album_link} target="album">{trad['photo'][lang]}</a></p>
-        }
-        { py.support_link &&
-            <p><a href={py.support_link} target="support">{trad['presentations'][lang]}</a></p>
-        }
-        <div class="sponsorCol" style="grid-column: sponsor">
-          {sponsoring.filter((sl) => py.sponsorship?.[sl]).map((sl:any) => (
-            <div class="sponsorLevel">
-              <span style="font-weight: bold;">{trad[sl][lang]}</span>:
-              { py.sponsorship?.[sl]?.map((sponsor:any, idx:number) => (
-                <span>
-                      <a href={sponsor.link[lang]}>{sponsor.name}</a>
-                  { idx < (py.sponsorship?.[sl]?.length-1) ? ', ' : ''}
-                    </span>
-              ))}
-            </div>
+<h2>{trad['title'][lang]}</h2>
+{ previous_years.map((py, idxYear:number) => (
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr [sponsor] 1fr; place-items: center;">
+    <div style="grid-column-start: 1; grid-column-end: 5"><h4>{parseDate(py.start_date).getFullYear()} ({trad['edition'][lang]} nº{previous_years.length - idxYear})</h4></div>
+    <p><a href={py.program_link} target="program">{trad['program'][lang]}</a></p>
+    { py.album_link &&
+      <p><a href={py.album_link} target="album">{trad['photo'][lang]}</a></p>
+    }
+    { py.support_link &&
+      <p><a href={py.support_link} target="support">{trad['presentations'][lang]}</a></p>
+    }
+    <div class="sponsorCol" style="grid-column: sponsor">
+      {sponsoring.filter((sl) => py.sponsorship?.[sl]).map((sl:any) => (
+        <div class="sponsorLevel">
+          <span style="font-weight: bold;">{trad[sl][lang]}</span>:
+          { py.sponsorship?.[sl]?.map((sponsor:any, idx:number) => (
+            <span>
+                    <a href={sponsor.link[lang]}>{sponsor.name}</a>
+              { idx < (py.sponsorship?.[sl]?.length-1) ? ', ' : ''}
+                  </span>
           ))}
         </div>
-        <hr>
-      </div>
-    ))}
-</Layout>
+      ))}
+    </div>
+    <hr>
+  </div>
+))}
