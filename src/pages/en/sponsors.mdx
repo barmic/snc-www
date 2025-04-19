@@ -2,10 +2,21 @@
 layout: ../../layouts/main.astro
 title: Sponsors
 ---
-import sponsors from '../../data/sponsors.json';
+import parseDate from '../../utils.js';
 import SponsorFormula from '../../components/SponsorFormula.astro';
 import Button from '../../components/Button.astro';
-import edition from '../../data/edition.json';
+import edition from '../../data/current.yaml';
+
+export const endFormat = Intl.DateTimeFormat('en', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+});
+export const openDate = endFormat.format(parseDate(edition.timeline.sponsor.open));
+export const year = parseDate(edition.start_date).getFullYear();
+export const remainEtoile = edition.sponsorship.type.etoile.number - edition.sponsorship.etoile.length;
+export const remainFlocon = edition.sponsorship.type.flocon.number - edition.sponsorship.flocon.length;
 
 # Why become sponsor?
 
@@ -16,8 +27,8 @@ In return, we offer you a large visibility, on the web and during the event. It'
 # Sponsoring options
 
 <div style="display: flex; flex-direction: row">
-<SponsorFormula sponsor={sponsors.sponsorship.type.etoile} active={true}/>
-<SponsorFormula sponsor={sponsors.sponsorship.type.flocon}/>
+<SponsorFormula sponsor={edition.sponsorship.type.etoile} active={true}/>
+<SponsorFormula sponsor={edition.sponsorship.type.flocon}/>
 </div>
 
 <Button href="https://drive.google.com/file/d/1hOHTGVXJfiQ0nJFJugivkNr3SwdEXuSF/view?usp=share_link" title="Plaquette Sponsors"/>
@@ -44,17 +55,17 @@ For the Etoile sponsor, this registratrion sets your ranking and therefore the b
 2. After the registration step the Snowcamp organisation team sends you an invoice by email Since the reception of the invoice, the sponsor has 90 days to make the payment.
 After that delay, the snowcamp organisation has the right to cancel the contract with that sponsor and to replace this sponsor.
 
-<p className="sponsorBefore">The registration for the Snowcamp {edition.year} ouvrira le</p>
-<p className="sponsorOpened">The registration for the Snowcamp {edition.year} is open since</p>
+<p className="sponsorBefore">The registration for the Snowcamp {year} ouvrira le</p>
+<p className="sponsorOpened">The registration for the Snowcamp {year} is open since</p>
 
-<div style="text-align: center; font-weight: bold; font-size: 1.3em; margin: 10px 0" className="sponsorBefore">{sponsors.sponsorship.open_datetime.fr}</div>
-<div style="text-align: center; font-weight: bold; font-size: 1.3em; margin: 10px 0" className="sponsorOpened">{sponsors.sponsorship.open_datetime.fr}</div>
+<div style="text-align: center; font-weight: bold; font-size: 1.3em; margin: 10px 0" className="sponsorBefore">{openDate}</div>
+<div style="text-align: center; font-weight: bold; font-size: 1.3em; margin: 10px 0" className="sponsorOpened">{openDate}</div>
 
 <p className="sponsorBefore">Please return from this moment to register. We will send a reminder message to companies that have already been sponsors.</p>
-<p className="sponsorOpened">There are currently {12 - sponsors.etoile.length} Star sponsor positions and {6 - sponsors.flocon.length} Snowflake sponsor positions remaining.</p>
+<p className="sponsorOpened">There are currently {remainEtoile} Star sponsor positions and {remainFlocon} Snowflake sponsor positions remaining.</p>
 
 <Button className="sponsorOpened" title="Formulaire d'inscription" href="${sponsors.sponsorship.subscribe_link}"></Button>
 
-<p className="sponsorClosed">The SnowCamp {edition.year} sponsorship campaign is currently closed. There are no more opportunities to become a sponsor for the conference. You can contact us by email to indicate that you would like to be on our contact list for next year's sponsorship campaign.</p>
+<p className="sponsorClosed">The SnowCamp {year} sponsorship campaign is currently closed. There are no more opportunities to become a sponsor for the conference. You can contact us by email to indicate that you would like to be on our contact list for next year's sponsorship campaign.</p>
 
 For any information, contact us by email

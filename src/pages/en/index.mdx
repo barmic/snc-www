@@ -3,6 +3,8 @@ layout: ../../layouts/main.astro
 title: Association SnowCamp
 description: Documents officiels de l'association
 ---
+import parseDate from '../../utils.js';
+import current from '../../data/current.yaml';
 import Polaroid from "../../components/Polaroid.astro";
 import Spotlight from '../../components/Spotlight.astro';
 import Columns3 from '../../components/Columns3.astro';
@@ -10,7 +12,7 @@ import ShortDescription from '../../components/ShortDescription.astro';
 import TimelineCFP from '../../components/TimelineCFP.astro';
 import Button from '../../components/Button.astro';
 import Sponsor from '../../components/Sponsor.astro';
-import edition from '../../data/edition.json';
+
 export const startFormat = Intl.DateTimeFormat('en', {
   month: 'long',
   day: 'numeric',
@@ -20,10 +22,10 @@ export const endFormat = Intl.DateTimeFormat('en', {
   month: 'long',
   day: 'numeric',
 });
-export const opencfp = endFormat.format(new Date(edition.timeline.cfp.open.date));
-export const startDate = new Date(edition.start_date);
+export const opencfp = endFormat.format(parseDate(current.timeline.cfp.open));
+export const startDate = parseDate(current.start_date);
 export const start = startFormat.format(startDate);
-export const end = endFormat.format(new Date(edition.end_date));
+export const end = endFormat.format(parseDate(current.end_date));
 export const year = startDate.getFullYear();
 
 <Spotlight/>

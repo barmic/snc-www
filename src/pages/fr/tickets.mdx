@@ -2,6 +2,17 @@
 layout: ../../layouts/main.astro
 title: Tiquets
 ---
+import parseDate from '../../utils.js';
+import Button from '../../components/Button.astro';
+import edition from '../../data/current.yaml';
+
+export const endFormat = Intl.DateTimeFormat('fr', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+});
+export const openDate = endFormat.format(parseDate(edition.timeline.tickets.open));
 
 # Billetterie
 
@@ -9,9 +20,11 @@ Vous pouvez acheter le pack 3 jours (Universités + Conférences) ou 2 jours (Co
 L'achat du ticket est délégué à notre prestataire BilletWeb.
 Attention, le nombre de billets est limité !
 
-<p className="sponsorBefore">La billetterie ouvre le tatata !</p>
-<p className="sponsorOpened">La billetterie est ouverte !</p>
-<p className="sponsorClosed">La billetterie est épuisée !</p>
+<p className="ticketsBefore">La billetterie ouvre le {openDate} !</p>
+<p className="ticketsOpened">La billetterie est ouverte !</p>
+<p className="ticketsClosed">La billetterie est épuisée !</p>
+
+<Button className="ticketsOpened" href={edition.ticketing.link} title="Billetterie"/>
 
 <table style="text-align: center">
 <thead>

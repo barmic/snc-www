@@ -5,7 +5,7 @@ title: Organisation du Snowcamp
 import Role from '../../components/Role.astro';
 import Orga from '../../components/Orgas.astro';
 import OrgaHisto from '../../components/OrgaHisto.astro';
-import organisation from '../../data/organisation.json';
+import organisation from '../../data/organisation.yaml';
 export const organizers = organisation.past.organizers.map(orga => {
   return { ...orga, total: orga.editions.filter(o => o).length };
 });

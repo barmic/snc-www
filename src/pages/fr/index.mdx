@@ -3,10 +3,8 @@ layout: ../../layouts/main.astro
 title: Association SnowCamp
 description: Documents officiels de l'association
 ---
-const currentUrl = new URL("/editions/current.json", Astro.url);
-const response = await fetch(currentUrl);
-const current = await response.json();
----
+import parseDate from '../../utils.js';
+import current from '../../data/current.yaml';
 import Polaroid from "../../components/Polaroid.astro";
 import Spotlight from '../../components/Spotlight.astro';
 import Columns3 from '../../components/Columns3.astro';
@@ -24,10 +22,10 @@ export const endFormat = Intl.DateTimeFormat('fr', {
   month: 'long',
   day: 'numeric',
 });
-export const opencfp = endFormat.format(new Date(current.timeline.cfp.open));
-export const startDate = new Date(current.start_date);
+export const opencfp = endFormat.format(parseDate(current.timeline.cfp.open));
+export const startDate = parseDate(current.start_date);
 export const start = startFormat.format(startDate);
-export const end = endFormat.format(new Date(current.end_date));
+export const end = endFormat.format(parseDate(current.end_date));
 export const year = startDate.getFullYear();
 
 <Spotlight/>

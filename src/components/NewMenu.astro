@@ -1,11 +1,17 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
-const lang = (Astro.locals as any).lang;
+
+import current from '../data/current.yaml';
+
+type translation = {fr: string, en: string};
+type language = keyof translation;
+
+const lang = (Astro.locals as any).lang as language;
 const path = (Astro.locals as any).path;
 const changeLang = lang === 'fr' ? path.replace('/fr/','/en/') : path.replace('/en/','/fr/');
 const targetLang = lang === 'en' ? 'fr' : 'en';
 
-const trad = {
+const trad: {[key: string]: translation} = {
   "what": {
     "fr": "C'est quoi ?",
     "en": "What is this?",
@@ -142,7 +148,7 @@ const trad = {
       <li><a href={getRelativeLocaleUrl(lang, 'previous-editions')}>{trad.past_editions[lang]}</a></li>
     </ul>
   </li>
-  <li><a href="https://app.voxxr.in/events/snowcamp25/schedule">{trad.program[lang]}</a></li>
+  {current.program_link && <li><a href={current.program_link}>{trad.program[lang]}</a></li>}
   <li>
     <a>CFP</a>
     <ul>

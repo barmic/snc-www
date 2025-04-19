@@ -2,6 +2,18 @@
 layout: ../../layouts/main.astro
 title: Tiquets
 ---
+import parseDate from '../../utils.js';
+import Button from '../../components/Button.astro';
+import edition from '../../data/current.yaml';
+
+export const endFormat = Intl.DateTimeFormat('en', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  timeZoneName: 'longGeneric',
+});
+export const openDate = endFormat.format(parseDate(edition.timeline.tickets.open));
 
 # Tickets
 
@@ -9,7 +21,12 @@ You can buy a pack of 3 days (universities + conferences), or 2 days (conference
 The tickets can be bought through our partner BilletWeb.
 Beware, the number of attendees is limited and we were sold out last year!
 
-The store opens on 18th of November at 11am (Paris)
+<p className="ticketsBefore">The store opens on {openDate} !</p>
+<p className="ticketsOpened">The store is open!</p>
+<p className="ticketsClosed">The store is sold out!</p>
+
+<Button className="ticketsOpened" href={edition.ticketing.link} title="Tickets"/>
+
 
 <table style="text-align: center">
 <thead>
