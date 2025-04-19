@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 
 export default function parseDate(input: string): Date {
-  const match = input.match(/^(.+)\[(.+)\]$/);
+  const match = RegExp(/^(.+)\[(.+)\]$/).exec(input);
   if (match) {
     const dateStr = match[1];
     const zone = match[2];

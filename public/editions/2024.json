@@ -1,21 +1,15 @@
 {
-  "sched_url": "https://snowcamp2024.sched.com/",
-  "flickr_embed_url": "https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/162459903@N02/albums/72177720305519001&sort=0&by=album&theme=default&scale=fill&speed=3000&limit=10&skin=default&autoplay=true",
-  "album_url": "https://www.flickr.com/photos/162459903@N02/albums/72177720305519001/",
-  "punch_line": {
-    "fr": "Une super conf IT a Grenoble",
-    "en": "A top IT conference at Grenoble"
-  },
-  "summary": {
-    "fr": "Retrouvez le programme de SnowCamp %s <a href=\"%s\" target=\"_blank\">ici</a> ! Vous pouvez aussi retrouver les liens vers les slides des conférences dans <a href=\"https://snowcamp2024.sched.com/\">Sched</a>, et les retours des participants <a href=\"https://openfeedback.io/o7zyKdkdRulRnrtU3DZo\">là</a>",
-    "en": "The agenda for SnowCamp %s is available <a href=\"%s\" target=\"_blank\">here</a>! You can also find the links to the sessions material in <a href=\"https://snowcamp2024.sched.com/\">Sched</a>, and the participants feedback <a href=\"https://openfeedback.io/o7zyKdkdRulRnrtU3DZo\">there</a>."
-  },
-  "sponsors": {
+  "start_date": "2024-01-01T00:00:00.000[Europe/Paris]",
+  "program_link": "https://snowcamp2024.sched.com/",
+  "flickr_embed_link": "https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/162459903@N02/albums/72177720305519001&sort=0&by=album&theme=default&scale=fill&speed=3000&limit=10&skin=default&autoplay=true",
+  "album_link": "https://www.flickr.com/photos/162459903@N02/albums/72177720305519001/",
+  "support_link": "https://github.com/snowcamp/snowcamp-supports-sessions/blob/main/2024.md",
+  "sponsorship": {
     "etoile": [
       {
         "name": "Moodys",
         "logo": "img/sponsors/moodys.2023.webp",
-        "url": {
+        "link": {
           "fr": "https://www.moodysanalytics.com",
           "en": "https://www.moodysanalytics.com"
         },
@@ -27,7 +21,7 @@
       {
         "name": "Viseo",
         "logo": "img/sponsors/viseo.2022.png",
-        "url": {
+        "link": {
           "fr": "http://www.viseo.com/fr",
           "en": "http://www.viseo.com/en"
         },
@@ -39,7 +33,7 @@
       {
         "name": "Open",
         "logo": "img/sponsors/open.2024.png",
-        "url": {
+        "link": {
           "fr": "https://www.open.global/",
           "en": "https://www.open.global/"
         },
@@ -51,7 +45,7 @@
       {
         "name": "ATOS",
         "logo": "img/sponsors/atos.2024.png",
-        "url": {
+        "link": {
           "fr": "https://atos.net/fr/",
           "en": "https://atos.net/"
         },
@@ -63,7 +57,7 @@
       {
         "name": "Kaizen",
         "logo": "img/sponsors/kaizen.2018.png",
-        "url": {
+        "link": {
           "fr": "https://kaizen-solutions.net/",
           "en": "https://kaizen-solutions.net/"
         },
@@ -75,7 +69,7 @@
       {
         "name": "Elastic",
         "logo": "img/sponsors/elastic.2016.png",
-        "url": {
+        "link": {
           "fr": "https://www.elastic.co/fr/",
           "en": "https://www.elastic.co"
         },
@@ -87,7 +81,7 @@
       {
         "name": "Criteo",
         "logo": "img/sponsors/crite.2023.png",
-        "url": {
+        "link": {
           "fr": "https://www.criteo.com/",
           "en": "https://www.criteo.com/"
         },
@@ -99,7 +93,7 @@
       {
         "name": "Norsys",
         "logo": "img/sponsors/norsys.2018.png",
-        "url": {
+        "link": {
           "fr": "https://www.norsys.fr/",
           "en": "https://www.norsys.fr/"
         },
@@ -111,7 +105,7 @@
       {
         "name": "CGI",
         "logo": "img/sponsors/cgi.2022.jpg",
-        "url": {
+        "link": {
           "fr": "https://www.cgi.com/fr",
           "en": "https://www.cgi.com/en"
         },
@@ -123,7 +117,7 @@
       {
         "name": "Thales",
         "logo": "img/sponsors/thales.2023.jpg",
-        "url": {
+        "link": {
           "fr": "https://www.thalesgroup.com/",
           "en": "https://www.thalesgroup.com/en"
         },
@@ -135,7 +129,7 @@
       {
         "name": "Sopra Steria",
         "logo": "img/sponsors/sopra-steria.2018.png",
-        "url": {
+        "link": {
           "fr": "https://www.soprasteria.com/fr/",
           "en": "https://www.soprasteria.com/en/"
         },
@@ -147,7 +141,7 @@
       {
         "name": "Salesforce",
         "logo": "img/sponsors/salesforce.2018.png",
-        "url": {
+        "link": {
           "fr": "https://engineering.salesforce.com/",
           "en": "https://engineering.salesforce.com/"
         },
@@ -161,7 +155,7 @@
       {
         "name": "Slate Digital",
         "logo": "img/sponsors/slatedigital.2024.png",
-        "url": {
+        "link": {
           "fr": "https://slatedigital.com",
           "en": "https://slatedigital.com"
         },
@@ -173,7 +167,7 @@
       {
         "name": "KLS Group",
         "logo": "img/sponsors/klsgroup.2020.png",
-        "url": {
+        "link": {
           "fr": "https://www.kls-group.fr",
           "en": "https://www.kls-group.fr"
         },
@@ -185,7 +179,7 @@
       {
         "name": "AViSTO",
         "logo": "img/sponsors/avisto.2020.png",
-        "url": {
+        "link": {
           "fr": "https://www.avisto.com",
           "en": "https://www.avisto.com"
         },
@@ -197,7 +191,7 @@
       {
         "name": "Collaboration Better The World",
         "logo": "img/sponsors/cbtw.2024.png",
-        "url": {
+        "link": {
           "fr": "https://positivethinking.tech/fr/",
           "en": "https://positivethinking.tech/"
         },
@@ -209,7 +203,7 @@
       {
         "name": "Zenika",
         "logo": "img/sponsors/zenika.2023.png",
-        "url": {
+        "link": {
           "fr": "https://www.zenika.com/",
           "en": "https://www.zenika.com/"
         },
@@ -221,7 +215,7 @@
       {
         "name": "BonitaSoft",
         "logo": "img/sponsors/bonita.2024.png",
-        "url": {
+        "link": {
           "fr": "https://www.bonitasoft.com/",
           "en": "https://www.bonitasoft.com/"
         },
@@ -233,7 +227,7 @@
       {
         "name": "Kelkoo Group",
         "logo": "img/sponsors/kelkoogroup.2019.png",
-        "url": {
+        "link": {
           "fr": "https://www.kelkoogroup.com/fr/",
           "en": "https://www.kelkoogroup.com/"
         },

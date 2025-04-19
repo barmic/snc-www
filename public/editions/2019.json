@@ -1,21 +1,14 @@
 {
-  "sched_url": "https://snowcamp2019.sched.com/",
-  "flickr_embed_url": "https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/162459903@N02/albums/72157706183887935&sort=0&by=album&theme=default&scale=fill&speed=3000&limit=10&skin=default&autoplay=true",
-  "album_url": "https://www.flickr.com/photos/162459903@N02/albums/72157706183887935/",
-  "punch_line": {
-    "fr": "Beaucoup de choses captivantes !",
-    "en": "Great with wonderful subjects!"
-  },
-  "summary": {
-    "fr": "En %s, SnowCamp était articulé autour de 4 thèmes : Découverte, Web &amp; DevOps / Cloud, Langages & Paradigmes et IA / Machine Learning. Redécouvrez l'agenda et les supports de présentations <a href=\"%s\" target=\"_blank\">ici !</a>",
-    "en": "In %s, SnowCamp focused on 4 themes: Discovery, Web &amp; DevOps / Cloud, Languages & Paradigmes and IA / Machine Learning. You can find the agenda and some slides <a href=\"%s\" target=\"_blank\">here!</a>"
-  },
-  "sponsors": {
+  "start_date": "2019-01-01T00:00:00.000[Europe/Paris]",
+  "program_link": "https://snowcamp2019.sched.com/",
+  "flickr_embed_link": "https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/162459903@N02/albums/72157706183887935&sort=0&by=album&theme=default&scale=fill&speed=3000&limit=10&skin=default&autoplay=true",
+  "album_link": "https://www.flickr.com/photos/162459903@N02/albums/72157706183887935/",
+  "sponsorship": {
     "chamois": [
       {
         "name": "Thales",
         "logo": "img/sponsors/thales.2019.png",
-        "url": {
+        "link": {
           "fr": "https://www.thalesgroup.com/",
           "en": "https://www.thalesgroup.com/en"
         },
@@ -29,7 +22,7 @@
       {
         "name": "Zenika",
         "logo": "img/sponsors/zenika.2018.png",
-        "url": {
+        "link": {
           "fr": "https://www.zenika.com/",
           "en": "https://www.zenika.com/"
         },
@@ -41,7 +34,7 @@
       {
         "name": "Norsys",
         "logo": "img/sponsors/norsys.2018.png",
-        "url": {
+        "link": {
           "fr": "http://www.norsys.fr/",
           "en": "http://www.norsys.fr/"
         },
@@ -53,7 +46,7 @@
       {
         "name": "ForgeRock",
         "logo": "img/sponsors/forgerock.2017.png",
-        "url": {
+        "link": {
           "fr": "https://www.forgerock.com/",
           "en": "https://www.forgerock.com/"
         },
@@ -65,7 +58,7 @@
       {
         "name": "Open",
         "logo": "img/sponsors/open.2019.png",
-        "url": {
+        "link": {
           "fr": "http://www.open-groupe.com/",
           "en": "http://www.open-groupe.com/"
         },
@@ -77,7 +70,7 @@
       {
         "name": "StackLabs",
         "logo": "img/sponsors/stacklabs.2019.png",
-        "url": {
+        "link": {
           "fr": "http://www.stack-labs.com",
           "en": "http://www.stack-labs.com"
         },
@@ -89,7 +82,7 @@
       {
         "name": "Criteo",
         "logo": "img/sponsors/crite.2019.png",
-        "url": {
+        "link": {
           "fr": "https://www.criteo.com/",
           "en": "https://www.criteo.com/"
         },
@@ -101,7 +94,7 @@
       {
         "name": "Kaizen Solutions",
         "logo": "img/sponsors/kaizen.2018.png",
-        "url": {
+        "link": {
           "fr": "https://kaizen-solutions.net/",
           "en": "https://kaizen-solutions.net/"
         },
@@ -113,7 +106,7 @@
       {
         "name": "Sopra Steria",
         "logo": "img/sponsors/sopra-steria.2018.png",
-        "url": {
+        "link": {
           "fr": "https://www.soprasteria.com/fr/home",
           "en": "https://www.soprasteria.com/en/home"
         },
@@ -125,7 +118,7 @@
       {
         "name": "Kelkoo",
         "logo": "img/sponsors/kelkoogroup.2019.png",
-        "url": {
+        "link": {
           "fr": "https://www.kelkoogroup.com/fr/",
           "en": "https://www.kelkoogroup.com/"
         },
@@ -139,7 +132,7 @@
       {
         "name": "Salesforce",
         "logo": "img/sponsors/salesforce.2018.png",
-        "url": {
+        "link": {
           "fr": "https://www.salesforce.com/",
           "en": "https://www.salesforce.com/"
         },
@@ -151,7 +144,7 @@
       {
         "name": "Orange",
         "logo": "img/sponsors/orange.2019.png",
-        "url": {
+        "link": {
           "fr": "https://www.orange.fr/",
           "en": "https://www.orange.com/"
         },
@@ -163,7 +156,7 @@
       {
         "name": "BonitSoft",
         "logo": "img/sponsors/bonitasoft.2019.png",
-        "url": {
+        "link": {
           "fr": "https://fr.bonitasoft.com/",
           "en": "https://www.bonitasoft.com/"
         },
@@ -175,7 +168,7 @@
       {
         "name": "Exoscale",
         "logo": "img/sponsors/exoscale.2019.png",
-        "url": {
+        "link": {
           "fr": "https://www.exoscale.com",
           "en": "https://www.exoscale.com"
         },
@@ -189,7 +182,7 @@
       {
         "name": "Manning",
         "logo": "img/partners/2019/manning.png",
-        "url": {
+        "link": {
           "fr": "https://www.manning.com/",
           "en": "https://www.manning.com/"
         },
@@ -201,7 +194,7 @@
       {
         "name": "AlpesJUG",
         "logo": "img/partners/alpesjug.png",
-        "url": {
+        "link": {
           "fr": "http://alpesjug.fr/",
           "en": "http://alpesjug.fr/"
         },
@@ -213,7 +206,7 @@
       {
         "name": "Sticker Mule",
         "logo": "img/partners/2019/stickermule.png",
-        "url": {
+        "link": {
           "fr": "http://stickermule.com/supports/snowcamp20-sponsorship/",
           "en": "http://stickermule.com/supports/snowcamp20-sponsorship/"
         },

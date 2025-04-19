@@ -17,7 +17,7 @@ import current from '../data/current.yaml';
 const sponsors = current.sponsorship;
 const timeline = current.timeline;
 
-const {frontmatter} = Astro.props;
+const {frontmatter, title} = Astro.props;
 ---
 <style>
   body {
@@ -74,7 +74,7 @@ const {frontmatter} = Astro.props;
 	<link href="/js/semantic/step.css" rel="stylesheet" type="text/css" />
 	<link rel="shortcut icon" type="image/png" href="/img/favicon/favicon.png">
 	<link rel="canonical" href="">
-	<title>{frontmatter.title}</title>
+	<title>{title ?? frontmatter.title}</title>
   <script src="https://cdn.jsdelivr.net/npm/luxon@3.6.1/build/global/luxon.min.js" integrity="sha256-UA/r5Oi3pNGYgJlnmZuqXkeXYQRLqyHxFGrFuUDZUXA=" crossorigin="anonymous"></script>
 </head>
 <body lang={lang}>

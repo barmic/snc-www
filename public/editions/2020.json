@@ -1,21 +1,15 @@
 {
-  "sched_url": "https://snowcamp2020.sched.com/",
-  "flickr_embed_url": "https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/162459903@N02/albums/72157712842299932&sort=0&by=album&theme=default&scale=fit&speed=3000&limit=10&skin=default&autoplay=true",
-  "album_url": "https://www.flickr.com/photos/162459903@N02/albums/72157712842299932/",
-  "punch_line": {
-    "fr": "Beaucoup de sujets passionnant !",
-    "en": "Great with excellent subjects!"
-  },
-  "summary": {
-    "fr": "En %s, SnowCamp était décliné autour de 4 thèmes : Découverte, Web &amp; DevOps / Cloud, Langages & Paradigmes et IA / Machine Learning. Redécouvrez l'agenda et les supports de présentations <a href=\"%s\" target=\"_blank\">ici !</a>",
-    "en": "In %s, SnowCamp focused on 4 themes: Discovery, Web &amp; DevOps / Cloud, Languages & Paradigmes and IA / Machine Learning. You can find the agenda and some slides <a href=\"%s\" target=\"_blank\">here!</a>"
-  },
-  "sponsors": {
+  "start_date": "2020-01-01T00:00:00.000[Europe/Paris]",
+  "program_link": "https://snowcamp2020.sched.com/",
+  "flickr_embed_link": "https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/162459903@N02/albums/72157712842299932&sort=0&by=album&theme=default&scale=fit&speed=3000&limit=10&skin=default&autoplay=true",
+  "album_link": "https://www.flickr.com/photos/162459903@N02/albums/72157712842299932/",
+  "support_link": "https://github.com/snowcamp/snowcamp-supports-sessions/blob/main/2020.md",
+  "sponsorship": {
     "etoile": [
       {
         "name": "Norsys",
         "logo": "img/sponsors/norsys.2018.png",
-        "url": {
+        "link": {
           "fr": "http://www.norsys.fr/",
           "en": "http://www.norsys.fr/"
         },
@@ -27,7 +21,7 @@
       {
         "name": "Kelkoo",
         "logo": "img/sponsors/kelkoogroup.2019.png",
-        "url": {
+        "link": {
           "fr": "https://www.kelkoogroup.com/fr/",
           "en": "https://www.kelkoogroup.com/"
         },
@@ -39,7 +33,7 @@
       {
         "name": "ForgeRock",
         "logo": "img/sponsors/forgerock.2017.png",
-        "url": {
+        "link": {
           "fr": "https://www.forgerock.com/",
           "en": "https://www.forgerock.com/"
         },
@@ -51,7 +45,7 @@
       {
         "name": "BonitaSoft",
         "logo": "img/sponsors/bonitasoft.2019.png",
-        "url": {
+        "link": {
           "fr": "https://fr.bonitasoft.com/",
           "en": "https://www.bonitasoft.com/"
         },
@@ -63,7 +57,7 @@
       {
         "name": "Viseo",
         "logo": "img/sponsors/viseo.2018.png",
-        "url": {
+        "link": {
           "fr": "http://www.viseo.com/fr",
           "en": "http://www.viseo.com/en"
         },
@@ -75,7 +69,7 @@
       {
         "name": "Kaizen",
         "logo": "img/sponsors/kaizen.2018.png",
-        "url": {
+        "link": {
           "fr": "https://kaizen-solutions.net/",
           "en": "https://kaizen-solutions.net/"
         },
@@ -87,7 +81,7 @@
       {
         "name": "Zenika",
         "logo": "img/sponsors/zenika.2018.png",
-        "url": {
+        "link": {
           "fr": "https://www.zenika.com/",
           "en": "https://www.zenika.com/"
         },
@@ -99,7 +93,7 @@
       {
         "name": "Microsoft",
         "logo": "img/sponsors/microsoft.2020.png",
-        "url": {
+        "link": {
           "fr": "https://www.microsoft.com/fr-fr/",
           "en": "https://www.microsoft.com/en-us/"
         },
@@ -111,7 +105,7 @@
       {
         "name": "Sopra Steria",
         "logo": "img/sponsors/sopra-steria.2018.png",
-        "url": {
+        "link": {
           "fr": "https://www.soprasteria.com/fr/accueil/",
           "en": "https://www.soprasteria.com/en/home/"
         },
@@ -123,7 +117,7 @@
       {
         "name": "Open",
         "logo": "img/sponsors/open.2019.png",
-        "url": {
+        "link": {
           "fr": "http://www.open-groupe.com/",
           "en": "http://www.open-groupe.com/"
         },
@@ -135,7 +129,7 @@
       {
         "name": "Criteo",
         "logo": "img/sponsors/crite.2019.png",
-        "url": {
+        "link": {
           "fr": "https://www.criteo.com/",
           "en": "https://www.criteo.com/"
         },
@@ -149,7 +143,7 @@
       {
         "name": "Tuleap",
         "logo": "img/sponsors/tuleap.2020.png",
-        "url": {
+        "link": {
           "fr": "https://www.tuleap.org/",
           "en": "https://www.tuleap.org/"
         },
@@ -161,7 +155,7 @@
       {
         "name": "AViSTO",
         "logo": "img/sponsors/avisto.2020.png",
-        "url": {
+        "link": {
           "fr": "https://www.avisto.com/?utm_source=snowcamp&utm_medium=sponsor&utm_campaign=backlinks",
           "en": "https://www.avisto.com/?utm_source=snowcamp&utm_medium=sponsor&utm_campaign=backlinks"
         },
@@ -173,7 +167,7 @@
       {
         "name": "KLS Group",
         "logo": "img/sponsors/klsgroup.2020.png",
-        "url": {
+        "link": {
           "fr": "https://www.kls-group.fr/",
           "en": "https://www.kls-group.fr/en/kls-group-en-home/"
         },
@@ -185,7 +179,7 @@
       {
         "name": "SOAT",
         "logo": "img/sponsors/soat.2020.png",
-        "url": {
+        "link": {
           "fr": "https://www.soat.fr/",
           "en": "https://www.soat.fr/"
         },
@@ -197,7 +191,7 @@
       {
         "name": "Qim info",
         "logo": "img/sponsors/quiminfo.2020.png",
-        "url": {
+        "link": {
           "fr": "https://www.qiminfo.ch/",
           "en": "https://www.qiminfo.ch/language/en/"
         },
@@ -211,7 +205,7 @@
       {
         "name": "Manning",
         "logo": "img/partners/2019/manning.png",
-        "url": {
+        "link": {
           "fr": "https://www.manning.com/",
           "en": "https://www.manning.com/"
         },
@@ -223,7 +217,7 @@
       {
         "name": "AlpesJUG",
         "logo": "img/partners/alpesjug.png",
-        "url": {
+        "link": {
           "fr": "http://alpesjug.fr/",
           "en": "http://alpesjug.fr/"
         },
@@ -235,7 +229,7 @@
       {
         "name": "Sticker Mule",
         "logo": "img/partners/2019/stickermule.png",
-        "url": {
+        "link": {
           "fr": "http://stickermule.com/supports/snowcamp20-sponsorship/",
           "en": "http://stickermule.com/supports/snowcamp20-sponsorship/"
         },

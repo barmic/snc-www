@@ -1,0 +1,103 @@
+---
+import parseDate from '../../utils.js';
+import edition from '../../data/current.yaml';
+import Layout from '../../layouts/main.astro';
+import PreviousSponsorsLogosSection from '../components/PreviousSponsorsLogosSection.astro';
+
+const first = 2016;
+const currentYear = parseDate(edition.start_date).getFullYear();
+const editions = [...Array(currentYear - first).keys()].map((offset) => offset + 2016).reverse();
+
+const sponsorLevels = [
+  { dataName: 'chamois', displayName: 'Chamois' },
+  { dataName: 'etoile', displayName: 'Etoile' },
+  { dataName: 'flocon', displayName: 'Flocon' },
+];
+async function loadYear(year: number) {
+  const url = new URL(`/editions/${year}.json`, Astro.url);
+  const a = await fetch(url);
+  if (a.ok) {
+    return await a.json();
+  } else {
+    return Promise.resolve({});
+  }
+}
+
+const previous_years = (await Promise.all(editions.map((year) => loadYear(year)))).filter((edition) => edition.start_date);
+
+---
+<style>
+  table th {
+    padding: 10px;
+    border: 1px solid black;
+  }
+  table td {
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid black;
+  }
+  table td.sponsorCol {
+    text-align: left;
+  }
+  .sponsorCol,
+  table th .sponsorCol,
+  table td .sponsorCol {
+    max-width: 300px;
+  }
+  .sponsorLevel {
+    margin-bottom: 10px;
+  }
+  .sponsorLevel:last-child {
+    margin-bottom: 0;
+  }
+</style>
+<Layout title="Éditions précédentes">
+  { previous_years.map((py) => console.log(py))}
+  <div class="snc-snowcamp-page">
+    <div class="snc-inner">
+      <div class="container">
+        <div class="row">
+          <h2>Historique des editions précédentes</h2>
+          <table border="1" style="padding: 20px; margin: 10px auto;text-align: center;">
+            <tr>
+              <th>Year</th>
+              <th>Program</th>
+              <th>Photos</th>
+              <th>Sources</th>
+              <th class="sponsorCol">Sponsors</th>
+            </tr>
+            { previous_years.map((py, idxYear:number) => (
+              <tr>
+                <td>{parseDate(py.start_date).getFullYear()} <br>({previous_years.length - idxYear})</td>
+                <td><a href={py.program_link} target="program">Program</a></td>
+                <td>
+                  { py.album_link &&
+                    <a href={py.album_link} target="album">Photo</a>
+                  }
+                </td>
+                <td>
+                  { py.support_link &&
+                    <a href={py.support_link} target="album">Presentation</a>
+                  }
+                </td>
+                <td class="sponsorCol">
+                  {sponsorLevels.filter((sl) => py.sponsorship?.[sl.dataName]).map((sl:any) => (
+                    <div class="sponsorLevel">
+                      <span style="font-weight: bold;">{sl.displayName}</span>:
+                      { py.sponsorship?.[sl.dataName]?.map((sponsor:any, idx:number) => (
+                        <span>
+                            <a href={sponsor.link.fr}>{sponsor.name}</a>
+                          { idx < (py.sponsorship?.[sl.dataName]?.length-1) ? ', ' : ''}
+                          </span>
+                      ))}
+                    </div>
+                  ))}
+                </td>
+              </tr>
+              ))}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

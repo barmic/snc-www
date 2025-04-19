@@ -1,5 +1,6 @@
 program_link:
-flickr_embed_url: https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/162459903@N02/albums/72177720305519001&sort=0&by=album&theme=default&scale=fill&speed=3000&limit=10&skin=default&autoplay=true
+flickr_embed_link: https://flickrembed.com/cms_embed.php?source=flickr&layout=responsive&input=www.flickr.com/photos/162459903@N02/albums/72177720305519001&sort=0&by=album&theme=default&scale=fill&speed=3000&limit=10&skin=default&autoplay=true
+album_link:
 start_date: '2026-01-28T08:00:00.000[Europe/Paris]'
 end_date: '2026-01-31T18:00:00.000[Europe/Paris]'
 timeline:
@@ -43,7 +44,7 @@ sponsorship:
   partners:
     - name: AlpesJUG
       logo: img/partners/alpesjug.png
-      url:
+      link:
         fr: http://alpesjug.fr/
         en: http://alpesjug.fr/
       description:
