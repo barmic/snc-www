@@ -7,8 +7,16 @@ import parseDate from '../../utils.js';
 import edition from '../../data/current.yaml';
 import organisation from '../../data/organisation.yaml';
 
-export const editions = organisation.past.editions
-  .toReversed()
-  .filter((year) => new Date(edition.start_date).getFullYear() !== year);
+export const first = 2016;
+export const currentYear = parseDate(edition.start_date).getFullYear();
+export const editions = [...Array(2026 - 2016).keys()].map((offset) => offset + 2016);
 
-{editions.map((year) => (<PreviousSponsorsLogosSection year={year} />))}
+{editions}
+
+{ editions.map((year) => (# {year}))
+
+}
+
+| Year | Program | Photos | Sources | Sponsors |
+|---|---|---|---|---|
+| 1 | 2 | 2 | 2 | 2 |
