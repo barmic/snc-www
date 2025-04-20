@@ -40,18 +40,27 @@ sponsorship:
   display: current
   meetgreet: []
   etoile: []
+#    - cgi2022
+#    - abylsen2023
+#    - kaizen
+#    - open2024
+#    - moodys2025
+#    - viseo2022
+#    - criteo2023
+#    - elastic2025
+#    - clevercloud
   flocon: []
+#    - avisto2020
+#    - kls2020
+#    - soprasteria2018
+#    - bonita2024
+#    - salesforce2018
+#    - zenika2023
+#    - kelkoo2019
+#    - bpifrance2025
+#    - havanait
   partners:
-    - name: AlpesJUG
-      logo: img/partners/alpesjug.png
-      link:
-        fr: http://alpesjug.fr/
-        en: http://alpesjug.fr/
-      description:
-        fr: "<b>AlpesJug</b> est le groupe des utilisateurs Java de la région grenobloise,
-        et à l'origine du Snowcamp."
-        en: "<b>AlpesJug</b> is the Java User Group of the Grenoble area, and the initiator
-        of the Snowcamp conference."
+    - alpesjug
 ticketing:
   link: https://www.billetweb.fr/shop.php?event=snowcamp-2026
   sold_out: false
