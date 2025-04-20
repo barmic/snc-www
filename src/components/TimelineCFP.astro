@@ -1,5 +1,6 @@
 ---
-import edition from '../data/edition.json';
+import parseDate from '../utils.js';
+import edition from '../data/current.yaml';
 const lang = (Astro.locals as any).lang;
 
 const startFormat = Intl.DateTimeFormat(lang, {
@@ -7,9 +8,9 @@ const startFormat = Intl.DateTimeFormat(lang, {
   month: 'long',
   day: 'numeric',
 });
-const open = startFormat.format(new Date(edition.timeline.cfp.open.date));
-const close = startFormat.format(new Date(edition.timeline.cfp.close.date));
-const notification = startFormat.format(new Date(edition.timeline.cfp.notification.date));
+const open = startFormat.format(parseDate(edition.timeline.cfp.open));
+const close = startFormat.format(parseDate(edition.timeline.cfp.close));
+const notification = startFormat.format(parseDate(edition.timeline.cfp.notification));
 const startFormatSnowcamp = Intl.DateTimeFormat(lang, {
   month: 'short',
   day: 'numeric',
@@ -19,8 +20,8 @@ const endFormatSnowcamp = Intl.DateTimeFormat(lang, {
   month: 'short',
   day: 'numeric',
 });
-const start = startFormatSnowcamp.format(new Date(edition.start_date));
-const end = endFormatSnowcamp.format(new Date(edition.end_date));
+const start = startFormatSnowcamp.format(parseDate(edition.start_date));
+const end = endFormatSnowcamp.format(parseDate(edition.end_date));
 ---
 <style>
   .timeline {

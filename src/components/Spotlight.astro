@@ -1,5 +1,6 @@
 ---
-import edition from '../data/edition.json';
+import parseDate from '../utils.js';
+import edition from '../data/current.yaml';
 const lang = (Astro.locals as any).lang;
 
 const [days, hours, minutes, seconds] = lang === 'fr'
@@ -15,9 +16,9 @@ const endFormat = Intl.DateTimeFormat(lang, {
   month: 'long',
   day: 'numeric',
 });
-const startDate = new Date(edition.start_date);
+const startDate = parseDate(edition.start_date);
 const start = startFormat.format(startDate);
-const end = endFormat.format(new Date(edition.end_date));
+const end = endFormat.format(parseDate(edition.end_date));
 const year = startDate.getFullYear();
 ---
 <style>
@@ -100,6 +101,17 @@ const year = startDate.getFullYear();
 
 </style>
 <script>
+  var DateTime = luxon.DateTime;
+  function parseDate(input) {
+    const match = input.match(/^(.+)\[(.+)\]$/);
+    if (match) {
+      const dateStr = match[1];
+      const zone = match[2];
+      const dt = DateTime.fromISO(dateStr, { zone });
+      return new Date(dt.toString());
+      }
+    return new Date(input);
+    }
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
@@ -109,7 +121,7 @@ const year = startDate.getFullYear();
   const minElem = document.getElementById("cd-min");
   const secElem = document.getElementById("cd-sec");
   const countdown = document.getElementById("countdown");
-  const deadline = new Date(countdown.dataset.date);
+  const deadline = parseDate(countdown.dataset.date);
 
   const timer = setInterval(() => {
     const distance = deadline - new Date().getTime();
