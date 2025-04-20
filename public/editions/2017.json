@@ -143,5 +143,17 @@
         }
       }
     ]
-  }
+  },
+  "organisers": [
+    "cedric",
+    "clement",
+    "emmanuel",
+    "johann",
+    "mickael",
+    "miguel",
+    "remy",
+    "sylvain",
+    "lorie",
+    "ludovic"
+  ]
 }

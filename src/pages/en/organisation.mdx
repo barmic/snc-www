@@ -6,9 +6,7 @@ import Role from '../../components/Role.astro';
 import Orga from '../../components/Orgas.astro';
 import OrgaHisto from '../../components/OrgaHisto.astro';
 import organisation from '../../data/organisation.yaml';
-export const organizers = organisation.past.organizers.map(orga => {
-  return { ...orga, total: orga.editions.filter(o => o).length };
-});
+import current from '../../data/current.yaml';
 
 # Organisation
 
@@ -17,7 +15,7 @@ It was started in 2016 on the initiative of [AlpesJug](https://alpesjug.fr).
 All organizers are enthusiast geeky volonteers.
 
 <div style="display: grid; grid-template-columns: repeat(3, minmax(200px, 1fr)); justify-items: center; align-items: center">
-  { organisation.organizers.map(orga => (<Orga orga={orga}/>))}
+  { organisation.organizers.filter((orga) => current.organisers.includes(orga.id)).map(orga => (<Orga orga={orga}/>))}
 </div>
 
 # Historique des organisateurs

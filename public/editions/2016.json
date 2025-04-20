@@ -141,5 +141,16 @@
         }
       }
     ]
-  }
+  },
+  "organisers": [
+    "aurore",
+    "cedric",
+    "clement",
+    "emmanuel",
+    "johann",
+    "mickael",
+    "miguel",
+    "remy",
+    "sylvain"
+  ]
 }

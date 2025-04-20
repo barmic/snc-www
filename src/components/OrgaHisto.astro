@@ -1,23 +1,37 @@
 ---
-interface Props {
-  past: Past;
-}
-interface Past {
-  editions: number[];
-  organizers: Organizer[];
-}
-interface Organizer {
-  name: string;
-  editions: boolean[];
-  honnor: boolean;
+import parseDate from '../utils.js';
+import edition from '../data/current.yaml';
+import organisation from '../data/organisation.yaml';
+
+const first = 2016;
+const currentYear = parseDate(edition.start_date).getFullYear();
+const years = [...Array(currentYear - first).keys()].map((offset) => offset + 2016);
+
+async function loadYear(year: number) {
+  const url = new URL(`/editions/${year}.json`, Astro.url);
+  const a = await fetch(url);
+  return a.ok ? await a.json() : Promise.resolve({});
 }
 
-import organisation from '../data/organisation.json';
+const previous_years = (await Promise.all(years.map((year) => loadYear(year)))).filter((edition) => edition.start_date);
+const editions = previous_years.map((year) => parseDate(year.start_date).getFullYear());
 
-export const past: Past = organisation.past;
-export const organizers = past.organizers.map(orga => {
-  return { ...orga, total: orga.editions.filter(o => o).length };
-});
+function compare(a, b) {
+  const split = a.name.split(" ");
+  const name1 = split[split.length - 1];
+  const split2 = b.name.split(" ");
+  const name2 = split2[split2.length - 1];
+  return name1.localeCompare(name2);
+}
+
+const organizers = organisation.organizers.map((o) => ({
+  name: o.name,
+  editions: previous_years
+    .map((py) => py.organisers.includes(o.id)),
+  total: previous_years
+    .filter((py) => py.organisers.includes(o.id))
+    .length,
+})).filter((o) => o.total > 0).sort(compare);
 ---
 <style>
   td {
@@ -28,7 +42,7 @@ export const organizers = past.organizers.map(orga => {
   <thead>
   <tr>
     <th></th>
-    {past.editions.map(edition => (<th>{edition}</th>))}
+    {editions.map(edition => (<th>{edition}</th>))}
     <th>Total</th>
   </tr>
   </thead>

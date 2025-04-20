@@ -1,315 +1,3 @@
-past:
-  editions:
-    - 2016
-    - 2017
-    - 2018
-    - 2019
-    - 2020
-    - 2022
-    - 2023
-    - 2024
-    - 2025
-  organizers:
-    - name: Aurore Allibe
-      editions:
-        - true
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Charles Curtit
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - true
-      honnor: false
-    - name: Cédric Tran-Xuan
-      editions:
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - false
-        - false
-      honnor: true
-    - name: Clément Escoffier
-      editions:
-        - true
-        - true
-        - true
-        - true
-        - false
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Dana Popovici
-      editions:
-        - false
-        - false
-        - true
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Emmanuel Hugonnet
-      editions:
-        - true
-        - true
-        - true
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Johann Martinson
-      editions:
-        - true
-        - true
-        - true
-        - true
-        - true
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Julien Giovaresto
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - false
-        - false
-      honnor: false
-    - name: Lorie Piscichio
-      editions:
-        - false
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - false
-        - false
-      honnor: true
-    - name: Ludovic Poitou
-      editions:
-        - false
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-      honnor: false
-    - name: Maha Alsayasneh
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - false
-        - false
-      honnor: false
-    - name: Mathieu Poissard
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - false
-      honnor: false
-    - name: Maxime Ducros
-      editions:
-        - false
-        - false
-        - false
-        - true
-        - true
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Michel Barret
-      editions:
-        - false
-        - false
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-      honnor: false
-    - name: Mickael Istria
-      editions:
-        - true
-        - true
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Miguel Moquillon
-      editions:
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-      honnor: false
-    - name: Ouiame Talbi
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - true
-      honnor: false
-    - name: Pierrick Rassat
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - true
-        - true
-        - true
-      honnor: false
-    - name: Remy Sanlaville
-      editions:
-        - true
-        - true
-        - true
-        - true
-        - true
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Sébastien Chassande-Barrioz
-      editions:
-        - false
-        - false
-        - false
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-      honnor: false
-    - name: Sylvain Bauza
-      editions:
-        - true
-        - true
-        - true
-        - true
-        - false
-        - false
-        - false
-        - false
-        - false
-      honnor: false
-    - name: Virginie Pageaud
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - true
-      honnor: false
-    - name: Willy Malvault
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - true
-        - true
-      honnor: false
-    - name: Yannick Chiron
-      editions:
-        - false
-        - false
-        - false
-        - true
-        - true
-        - true
-        - true
-        - true
-        - true
-      honnor: false
-    - name: Yohan Lasorsa
-      editions:
-        - false
-        - false
-        - false
-        - false
-        - false
-        - true
-        - true
-        - true
-        - true
-      honnor: false
 roles:
   - name: Sponsors
     description: Communication, recrutement, facturation, places
@@ -339,52 +27,96 @@ organizers:
   - name: Charles Curtit
     img: charles.jpg
     linkedin: charles-curtit-9a8451194
+    id: charles
   - name: Ludovic Poitou
     img: ludovic.jpg
     twitter: LudoMP
     linkedin: ludovicp
     github: ludomp
+    id: ludovic
   - name: Jade Crotto-Miglietti
     img: jade.jpg
     linkedin: jadecrottomiglietti
+    id: jade
   - name: Michel Barret
     img: michel.jpg
     linkedin: michel-barret-23a39a27
     github: barmic
+    id: michel
   - name: Miguel Moquillon
     img: miguel.jpg
     twitter: migmoq
     linkedin: miguel-moquillon-b8a1aa3
     github: mmoqui
+    id: miguel
   - name: Ouiame Talbi
     img: ouiame.png
     linkedin: ouiame-talbi
+    id: ouiame
   - name: Pierrick Rassat
     img: pierrick.jpg
     linkedin: pierrick-rassat-7002b691
     github: kraiss
+    id: pierrick
   - name: Sébastien Chassande-Barrioz
     img: sebastien.jpg
     twitter: SnowCampIO
     linkedin: sébastien-chassande-barrioz-aa6a623
     github: schassande
+    id: sebastien
   - name: Virginie Pageaud
     img: virginie.jpg
     twitter: La_Fee_Dragee
     linkedin: virginiecasavecchia
     github: Fairy-wen
+    id: virginie
   - name: Willy Malvault
     img: willy.png
     twitter: malvaultw
     linkedin: willy-malvault-aa584814
     github: vlamy
+    id: willy
   - name: Yannick Chiron
     img: yannick.jpg
     twitter: Ldoppea
     linkedin: yannickchiron
     github: Ldoppea
+    id: yannick
   - name: Yohan Lasorsa
     img: yohan.jpeg
     twitter: sinedied
     linkedin: yohanlasorsa
     github: sinedied
+    id: yohan
+  # Former
+  - name: Aurore Allibe
+    id: aurore
+  - name: Sylvain Bauza
+    id: sylvain
+  - name: Remy Sanlaville
+    id: remy
+  - name: Mickael Istria
+    id: mickael
+  - name: Maxime Ducros
+    id: maxime
+  - name: Mathieu Poissard
+    id: mathieu
+  - name: Maha Alsayasneh
+    id: maha
+  - name: Lorie Piscichio
+    id: lorie
+    honor: true
+  - name: Julien Giovaresto
+    id: julien
+  - name: Johann Martinson
+    id: johann
+  - name: Emmanuel Hugonnet
+    id: emmanuel
+  - name: Dana Popovici
+    id: dana
+  - name: Clément Escoffier
+    id: clement
+  - name: Cédric Tran-Xuan
+    id: cedric
+    honor: true
+

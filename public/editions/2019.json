@@ -216,5 +216,19 @@
         }
       }
     ]
-  }
+  },
+  "organisers": [
+    "cedric",
+    "clement",
+    "johann",
+    "miguel",
+    "remy",
+    "sylvain",
+    "lorie",
+    "ludovic",
+    "michel",
+    "maxime",
+    "sebastien",
+    "yannick"
+  ]
 }

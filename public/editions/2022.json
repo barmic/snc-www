@@ -201,5 +201,17 @@
         }
       }
     ]
-  }
+  },
+  "organisers": [
+    "cedric",
+    "miguel",
+    "lorie",
+    "ludovic",
+    "michel",
+    "maxime",
+    "sebastien",
+    "yannick",
+    "pierrick",
+    "yohan"
+  ]
 }

@@ -237,5 +237,20 @@
         }
       }
     ]
-  }
+  },
+  "organisers": [
+    "miguel",
+    "ludovic",
+    "michel",
+    "maxime",
+    "sebastien",
+    "yannick",
+    "pierrick",
+    "yohan",
+    "willy",
+    "charles",
+    "mathieu",
+    "ouiame",
+    "virginie"
+  ]
 }

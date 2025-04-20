@@ -166,5 +166,18 @@
         }
       }
     ]
-  }
+  },
+  "organisers": [
+    "cedric",
+    "clement",
+    "emmanuel",
+    "johann",
+    "miguel",
+    "remy",
+    "sylvain",
+    "lorie",
+    "ludovic",
+    "michel",
+    "dana"
+  ]
 }
