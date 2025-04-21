@@ -8,7 +8,7 @@ type language = keyof translation;
 
 const lang = (Astro.locals as any).lang as language;
 const path = (Astro.locals as any).path;
-const changeLang = lang === 'fr' ? path.replace('/fr/','/en/') : path.replace('/en/','/fr/');
+const changeLang = lang === 'fr' ? '/en/' : path.replace('/en/','/');
 const targetLang = lang === 'en' ? 'fr' : 'en';
 
 const trad: {[key: string]: translation} = {
@@ -172,14 +172,14 @@ const trad: {[key: string]: translation} = {
   <li>
     <a>Sponsors</a>
     <ul>
-      <li><a href={getRelativeLocaleUrl(lang, '/#sponsors')}>{trad.our_sponsors[lang]}</a></li>
+      <li><a href={lang === 'fr' ? `/#sponsors` : `/${lang}/#sponsors`}>{trad.our_sponsors[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, 'sponsors')}>{trad.become_sponsor[lang]}</a></li>
-      <li><a href={`/${lang}/sponsors/#plan`}>{trad.sponsor_plan_title[lang]}</a></li>
-      <li><a href={`/${lang}/sponsors/#beers`}>{trad.sponsor_meetgreet_title[lang]}</a></li>
+      <li><a href={lang === 'fr' ? `/sponsors/#plan` : `/${lang}/sponsors/#plan`}>{trad.sponsor_plan_title[lang]}</a></li>
+      <li><a href={lang === 'fr' ? `/sponsors/#beers` : `/${lang}/sponsors/#beers`}>{trad.sponsor_meetgreet_title[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, '/sponsors_guide/')}>{trad.sponsor_guide_title[lang]}</a></li>
     </ul>
   </li>
-  <li><a href={`/${lang}/#venue`}>{trad.venue[lang]}</a></li>
+  <li><a href={lang === 'fr' ? `/#venue` : `/${lang}/#venue`}>{trad.venue[lang]}</a></li>
   <li><a href={getRelativeLocaleUrl(lang, 'tickets')}>{trad.ticket[lang]}</a></li>
   <li><a>{trad.videos[lang]}</a></li>
   <li><a href={getRelativeLocaleUrl(lang, 'coc')}>{trad.coc[lang]}</a></li>

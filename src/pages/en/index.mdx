@@ -33,6 +33,10 @@ export const startDate = parseDate(current.start_date);
 export const start = startFormat.format(startDate);
 export const end = endFormat.format(parseDate(current.end_date));
 export const year = startDate.getFullYear();
+
+export const etoiles = current.sponsorship.etoile.map((id) => sponsorsTable[id]);
+export const flocons = current.sponsorship.flocon.map((id) => sponsorsTable[id]);
+export const partners = current.sponsorship.partners.map((id) => sponsorsTable[id]);
 export const tlCFP = [
   {
     "title": "Open",
@@ -99,17 +103,30 @@ Et encore plus de conseils [ici](https://docs.google.com/document/d/e/2PACX-1vRe
 </div>
 </div>
 
+<a id="sponsors"></a>
+
 # Sponsors { year }
 
 > They have already placed their trust to prepare the edition { year } together.
->
+
+## Étoile
+
+{ etoiles.map((etoile) => <Sponsor title={etoile.name} img={etoile.logo} href={etoile.link.fr} />)
+}
+
+## Flocon
+
+{ flocons.map((flocon) => <Sponsor title={flocon.name} img={flocon.logo} href={flocon.link.fr} />)
+}
+
 > Many thanks to our sponsors!
 
 <Button title="Become sponsor !" href={current.sponsorship.subscribe_link}></Button>
 
 ## Parteners
 
-<Sponsor title="AlpesJUG" img="/img/partners/alpesjug.png" href="https://alpesjug.fr"></Sponsor>
+{ partners.map((partner) => <Sponsor title={partner.name} img={partner.logo} href={partner.link.en} />)
+}
 
 <a id="venue"></a>
 

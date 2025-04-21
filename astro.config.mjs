@@ -15,7 +15,7 @@ export default defineConfig({
     defaultLocale,
     locales,
     routing: {
-      prefixDefaultLocale: true
+      prefixDefaultLocale: false
     }
   },
   integrations: [mdx()],

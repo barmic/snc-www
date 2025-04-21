@@ -1,10 +1,10 @@
 ---
-layout: ../../layouts/main.astro
+layout: ../layouts/main.astro
 title: Tiquets
 ---
-import parseDate from '../../utils.js';
-import Button from '../../components/Button.astro';
-import edition from '../../data/current.yaml';
+import parseDate from '../utils.js';
+import Button from '../components/Button.astro';
+import edition from '../data/current.yaml';
 
 export const endFormat = Intl.DateTimeFormat('fr', {
   year: 'numeric',
