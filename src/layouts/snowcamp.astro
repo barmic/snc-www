@@ -7,7 +7,7 @@ const { title } = Astro.props;
 const lang = (Astro.locals as any).lang;
 
 import Footer from '../components/Footer.astro';
-import NewMenu from '../components/NewMenu.astro';
+import Menu from '../components/Menu.astro';
 import '../styles/reset.css';
 import '../styles/style.css';
 import '../styles/snowcamp.css';
@@ -68,7 +68,7 @@ const {frontmatter} = Astro.props;
     <a href={getRelativeLocaleUrl(lang, '/')}>
       <img style="max-width: 170px" src="/img/alpes-snow-full-illustration.webp" alt="Logo">
     </a>
-    <NewMenu></NewMenu>
+    <Menu></Menu>
   </header>
   <main>
 	<slot />
