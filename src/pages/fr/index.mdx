@@ -37,6 +37,25 @@ export const year = startDate.getFullYear();
 export const etoiles = current.sponsorship.etoile.map((id) => sponsorsTable[id]);
 export const flocons = current.sponsorship.flocon.map((id) => sponsorsTable[id]);
 export const partners = current.sponsorship.partners.map((id) => sponsorsTable[id]);
+export const tlCFP = [
+  {
+    "title": "Ouverture",
+    "date": current.timeline.cfp.open,
+  },
+  {
+    "title": "Fermeture",
+    "date": current.timeline.cfp.close,
+  },
+  {
+    "title": "Notification",
+    "date": current.timeline.cfp.notification,
+  },
+  {
+    "title": "Conférence",
+    "begin": current.start_date,
+    "end": current.end_date,
+  }
+];
 
 <Spotlight/>
 
@@ -62,7 +81,7 @@ export const partners = current.sponsorship.partners.map((id) => sponsorsTable[i
 
 # Call For Proposals
 
-<TimelineCFP/>
+<TimelineCFP tl={tlCFP}/>
 
 <div style="display: flex; flex-direction: row; align-items: center; gap: 2rem">
   <div>
@@ -104,6 +123,8 @@ Et encore plus de conseils [ici](https://docs.google.com/document/d/e/2PACX-1vRe
 
 { partners.map((partner) => <Sponsor title={partner.name} img={partner.logo} href={partner.link.fr} />)
 }
+
+<a id="venue"></a>
 
 # Venir
 

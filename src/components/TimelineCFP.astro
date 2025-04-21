@@ -1,16 +1,32 @@
 ---
+import { date } from 'astro/zod';
 import parseDate from '../utils.js';
-import edition from '../data/current.yaml';
 const lang = (Astro.locals as any).lang;
+interface ShortStep {
+  title: string;
+  date: string;
+  description?: string;
+}
+interface LongStep {
+  title: string;
+  begin: string;
+  end: string;
+  description?: string;
+}
+type Step = ShortStep | LongStep;
 
-const startFormat = Intl.DateTimeFormat(lang, {
+interface Props {
+  tl: Step[];
+}
+
+const { tl } = Astro.props;
+
+const instantFormat = Intl.DateTimeFormat(lang, {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 });
-const open = startFormat.format(parseDate(edition.timeline.cfp.open));
-const close = startFormat.format(parseDate(edition.timeline.cfp.close));
-const notification = startFormat.format(parseDate(edition.timeline.cfp.notification));
+
 const startFormatSnowcamp = Intl.DateTimeFormat(lang, {
   month: 'short',
   day: 'numeric',
@@ -20,15 +36,50 @@ const endFormatSnowcamp = Intl.DateTimeFormat(lang, {
   month: 'short',
   day: 'numeric',
 });
-const start = startFormatSnowcamp.format(parseDate(edition.start_date));
-const end = endFormatSnowcamp.format(parseDate(edition.end_date));
+
+function instant(step: any): step is ShortStep {
+  return (step as ShortStep).date !== undefined;
+}
+
+function long(step: any): step is LongStep {
+  return (step as LongStep).begin !== undefined;
+}
+
+function prepare(step: Step) {
+  let formatedDate = '';
+  let end = 0;
+  if (instant(step)) {
+    formatedDate = instantFormat.format(parseDate(step.date));
+    end = parseDate(step.date).getTime();
+  } else if (long(step)) {
+    formatedDate = `${startFormatSnowcamp.format(parseDate(step.begin))} - ${endFormatSnowcamp.format(parseDate(step.end))}`;
+    end = parseDate(step.end).getTime();
+  }
+  return {
+    title: step.title,
+    date: formatedDate,
+    description: step.description,
+    finished: new Date().getTime() > end,
+  };
+}
+const timeline = tl.map((step) => prepare(step));
 ---
 <style>
+  :root {
+    --tl-border-size: 1px;
+    --tl-padding-size: 1px;
+  }
   .timeline {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fill, minmax(10em, auto));
+    gap: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    padding: 0 1fr;
   }
 
   h2 {
@@ -36,31 +87,56 @@ const end = endFormatSnowcamp.format(parseDate(edition.end_date));
     color: var(--orange);
   }
 
+  p {
+    max-width: max-content;
+  }
+
   .step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1rem;
-    border-width: 1px;
-    border-color: lightgrey;
+    position: relative;
+    padding: 20px;
+    display: inline-block;
+    border-width: var(--tl-border-size);
+    border-color: var(--orange);
     border-style: solid;
+    border-radius: 5%;
+    height: 6rem;
+    min-width: max-content;
+  }
+  .step.finished {
+    background-color: var(--orange);
+    color: var(--background);
+    * {
+      background-color: var(--orange);
+      color: var(--background);
+    }
+  }
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+
+    /* arrow */
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #333;
+  }
+  .title {
+    color: var(--orange);
+    margin: 0;
   }
 </style>
+<div style="display: flex; flex-direction: row; align-items: center">
 <div class="timeline">
-  <div class="step">
-    <h2>{edition.timeline.cfp.open[lang]}</h2>
-    <p>{open}</p>
-  </div>
-  <div class="step">
-    <h2>{edition.timeline.cfp.close[lang]}</h2>
-    <p>{close}</p>
-  </div>
-  <div class="step">
-    <h2>{edition.timeline.cfp.notification[lang]}</h2>
-    <p>{notification}</p>
-  </div>
-  <div class="step">
-    <h2>Snowcamp</h2>
-    <p>{start} - {end}</p>
-  </div>
+  { timeline.map((step) => (
+    <div class={step.finished ? 'step finished' : 'step'}>
+      <p class="title">{step.title}</p>
+      <p>{step.date}</p>
+      <p>{step.description}</p>
+    </div>
+  )) }
+</div>
 </div>

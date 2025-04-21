@@ -12,7 +12,7 @@ import ShortDescription from '../../components/ShortDescription.astro';
 import TimelineCFP from '../../components/TimelineCFP.astro';
 import Button from '../../components/Button.astro';
 import Sponsor from '../../components/Sponsor.astro';
-import sponsors from '../data/sponsors.yaml';
+import sponsors from '../../data/sponsors.yaml';
 
 export const sponsorsTable = sponsors.sponsors.reduce((a, b) => {
   a[b.id] = b;
@@ -33,6 +33,25 @@ export const startDate = parseDate(current.start_date);
 export const start = startFormat.format(startDate);
 export const end = endFormat.format(parseDate(current.end_date));
 export const year = startDate.getFullYear();
+export const tlCFP = [
+  {
+    "title": "Open",
+    "date": current.timeline.cfp.open,
+  },
+  {
+    "title": "Close",
+    "date": current.timeline.cfp.close,
+  },
+  {
+    "title": "Notification",
+    "date": current.timeline.cfp.notification,
+  },
+  {
+    "title": "Conference",
+    "begin": current.start_date,
+    "end": current.end_date,
+  }
+];
 
 <Spotlight/>
 
@@ -58,7 +77,7 @@ export const year = startDate.getFullYear();
 
 # Call For Proposals
 
-<TimelineCFP/>
+<TimelineCFP tl={tlCFP}/>
 
 <div style="display: flex; flex-direction: row; align-items: center; gap: 2rem">
   <div>
@@ -92,6 +111,7 @@ Et encore plus de conseils [ici](https://docs.google.com/document/d/e/2PACX-1vRe
 
 <Sponsor title="AlpesJUG" img="/img/partners/alpesjug.png" href="https://alpesjug.fr"></Sponsor>
 
+<a id="venue"></a>
 
 # Venue
 

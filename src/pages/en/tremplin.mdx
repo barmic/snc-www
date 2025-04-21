@@ -4,6 +4,30 @@ title: Tremplin
 ---
 import Polaroid from '../../components/Polaroid.astro';
 import Button from '../../components/Button.astro';
+import TimelineCFP from '../../components/TimelineCFP.astro';
+import current from '../../data/current.yaml';
+export const tl = [
+  {
+    "title": "Open",
+    "date": current.timeline.tremplin.open,
+  },
+  {
+    "title": "Close",
+    "date": current.timeline.tremplin.close,
+  },
+  {
+    "title": "Notification",
+    "date": current.timeline.tremplin.notification,
+  },
+  {
+    "title": "Start of coaching",
+    "date": current.timeline.tremplin.start,
+  },
+  {
+    "title": "Tremplin Evening",
+    "date": current.timeline.tremplin.event,
+  }
+];
 
 # Le Tremplin de Snowcamp
 

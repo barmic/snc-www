@@ -14,10 +14,29 @@ export const endFormat = Intl.DateTimeFormat('en', {
   day: 'numeric',
 });
 export const opencfp = endFormat.format(parseDate(current.timeline.cfp.open));
+export const tlCFP = [
+  {
+    "title": "Open",
+    "date": current.timeline.cfp.open,
+  },
+  {
+    "title": "Close",
+    "date": current.timeline.cfp.close,
+  },
+  {
+    "title": "Notification",
+    "date": current.timeline.cfp.notification,
+  },
+  {
+    "title": "Conference",
+    "begin": current.start_date,
+    "end": current.end_date,
+  }
+];
 
 # Call For Proposals
 
-<TimelineCFP/>
+<TimelineCFP tl={tlCFP}/>
 
 The CFP opens on the {opencfp}!
 Let's prepare awesome subjects!

@@ -4,6 +4,30 @@ title: Tremplin
 ---
 import Polaroid from '../../components/Polaroid.astro';
 import Button from '../../components/Button.astro';
+import TimelineCFP from '../../components/TimelineCFP.astro';
+import current from '../../data/current.yaml';
+export const tl = [
+  {
+    "title": "Ouverture",
+    "date": current.timeline.tremplin.open,
+  },
+  {
+    "title": "Fermeture",
+    "date": current.timeline.tremplin.close,
+  },
+  {
+    "title": "Notification",
+    "date": current.timeline.tremplin.notification,
+  },
+  {
+    "title": "Accompagnement",
+    "date": current.timeline.tremplin.start,
+  },
+  {
+    "title": "Soirée du Tremplin",
+    "date": current.timeline.tremplin.event,
+  }
+];
 
 # Le Tremplin de Snowcamp
 
@@ -18,6 +42,8 @@ A l’issue d’un vote, 2 des participants seront sélectionnés pour rejouer l
 - mi-juin 2025 : annonce des candidates et candidats sélectionnés
 - mi-septembre 2025 : début de l'accompagnement
 - mi-novembre 2025 : soirée du Tremplin et sélection des 2 talks qui seront programmés pour le SnowCamp 2026
+
+<TimelineCFP tl={tl}/>
 
 <Button href="https://conference-hall.io/tremplin-de-snowcamp-2025" title="Participer"/>
 

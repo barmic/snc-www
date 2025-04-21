@@ -8,12 +8,14 @@ timeline:
     open: '2025-04-01T00:00:00.000[Europe/Paris]'
     close: '2025-06-15T00:00:00.000[Europe/Paris]'
     notification: '2025-06-01T00:00:00.000[Europe/Paris]'
+    start: '2025-09-15T00:00:00.000[Europe/Paris]'
+    event: '2025-11-15T00:00:00.000[Europe/Paris]'
   cfp:
     open: '2025-09-01T00:00:00.000[Europe/Paris]'
     close: '2025-10-15T00:00:00.000[Europe/Paris]'
     notification: '2025-11-01T00:00:00.000[Europe/Paris]'
   sponsor:
-    open: '2025-06-17T11:00:00.000[Europe/Paris]'
+    open: '2025-06-09T11:00:00.000[Europe/Paris]'
   tickets:
     open: '2025-11-17T11:00:00.000[Europe/Paris]'
 sponsorship:

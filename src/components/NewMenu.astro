@@ -80,6 +80,18 @@ const trad: {[key: string]: translation} = {
     "fr": "Ligne éditoriale",
     "en": "Editorial line",
   },
+  "venue_link": {
+    "fr": "/fr/#venue",
+    "en": "/en/#venue"
+  },
+  "sponsor_plan_link": {
+    "fr": "/fr/#plan",
+    "en": "/en/#plan"
+  },
+  "sponsor_beer_link": {
+    "fr": "/fr/#beers",
+    "en": "/en/#beers"
+  }
 }
 ---
 <style>
@@ -152,7 +164,7 @@ const trad: {[key: string]: translation} = {
   <li>
     <a>CFP</a>
     <ul>
-      <li><a href={getRelativeLocaleUrl(lang, 'snowcamp')}>{trad.conference[lang]}</a></li>
+      <li><a href={getRelativeLocaleUrl(lang, 'cfp')}>{trad.conference[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, 'tremplin')}>{trad.tremplin[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, 'snowcamp')}>{trad.editorialLine[lang]}</a></li>
     </ul>
@@ -162,12 +174,12 @@ const trad: {[key: string]: translation} = {
     <ul>
       <li><a href={getRelativeLocaleUrl(lang, '/#sponsors')}>{trad.our_sponsors[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, 'sponsors')}>{trad.become_sponsor[lang]}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/sponsors/#plan')}>{trad.sponsor_plan_title[lang]}</a></li>
-      <li><a href={getRelativeLocaleUrl(lang, '/sponsors/#beers')}>{trad.sponsor_meetgreet_title[lang]}</a></li>
+      <li><a href={`/${lang}/sponsors/#plan`}>{trad.sponsor_plan_title[lang]}</a></li>
+      <li><a href={`/${lang}/sponsors/#beers`}>{trad.sponsor_meetgreet_title[lang]}</a></li>
       <li><a href={getRelativeLocaleUrl(lang, '/sponsors_guide/')}>{trad.sponsor_guide_title[lang]}</a></li>
     </ul>
   </li>
-  <li><a href={getRelativeLocaleUrl(lang, '#venir')}>{trad.venue[lang]}</a></li>
+  <li><a href={`/${lang}/#venue`}>{trad.venue[lang]}</a></li>
   <li><a href={getRelativeLocaleUrl(lang, 'tickets')}>{trad.ticket[lang]}</a></li>
   <li><a>{trad.videos[lang]}</a></li>
   <li><a href={getRelativeLocaleUrl(lang, 'coc')}>{trad.coc[lang]}</a></li>
