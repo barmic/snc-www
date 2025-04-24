@@ -1,6 +1,5 @@
 ---
-import { date } from 'astro/zod';
-import parseDate from '../utils.js';
+import Utils from '../utils';
 const lang = (Astro.locals as any).lang;
 interface ShortStep {
   title: string;
@@ -49,11 +48,11 @@ function prepare(step: Step) {
   let formatedDate = '';
   let end = 0;
   if (instant(step)) {
-    formatedDate = instantFormat.format(parseDate(step.date));
-    end = parseDate(step.date).getTime();
+    formatedDate = instantFormat.format(Utils.parseDate(step.date));
+    end = Utils.parseDate(step.date).getTime();
   } else if (long(step)) {
-    formatedDate = `${startFormatSnowcamp.format(parseDate(step.begin))} - ${endFormatSnowcamp.format(parseDate(step.end))}`;
-    end = parseDate(step.end).getTime();
+    formatedDate = `${startFormatSnowcamp.format(Utils.parseDate(step.begin))} - ${endFormatSnowcamp.format(Utils.parseDate(step.end))}`;
+    end = Utils.parseDate(step.end).getTime();
   }
   return {
     title: step.title,

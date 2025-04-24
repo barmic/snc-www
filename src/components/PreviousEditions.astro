@@ -1,5 +1,5 @@
 ---
-import parseDate from '../utils.js';
+import Utils from '../utils';
 import edition from '../data/current.yaml';
 import sponsors from '../data/sponsors.yaml';
 
@@ -13,7 +13,7 @@ type translation = {fr: string, en: string};
 type language = keyof translation;
 
 const first = 2016;
-const currentYear = parseDate(edition.start_date).getFullYear();
+const currentYear = Utils.parseDate(edition.start_date).getFullYear();
 const editions = [...Array(currentYear - first).keys()].map((offset) => offset + 2016).reverse();
 
 const sponsoring = [ 'chamois', 'etoile', 'flocon' ];
@@ -87,7 +87,7 @@ const trad: {[key: string]: translation} = {
 <h2>{trad['title'][lang]}</h2>
 { previous_years.map((py, idxYear:number) => (
   <div style="display: grid; grid-template-columns: 1fr 1fr 1fr [sponsor] 1fr; place-items: center;">
-    <div style="grid-column-start: 1; grid-column-end: 5"><h4>{parseDate(py.start_date).getFullYear()} ({trad['edition'][lang]} nº{previous_years.length - idxYear})</h4></div>
+    <div style="grid-column-start: 1; grid-column-end: 5"><h4>{Utils.parseDate(py.start_date).getFullYear()} ({trad['edition'][lang]} nº{previous_years.length - idxYear})</h4></div>
     <p><a href={py.program_link} target="program">{trad['program'][lang]}</a></p>
     { py.album_link &&
       <p><a href={py.album_link} target="album">{trad['photo'][lang]}</a></p>

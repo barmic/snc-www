@@ -2,7 +2,7 @@
 layout: ../../layouts/main.astro
 title: Tiquets
 ---
-import parseDate from '../../utils.js';
+import Utils from '../../utils';
 import Button from '../../components/Button.astro';
 import edition from '../../data/current.yaml';
 
@@ -13,7 +13,7 @@ export const endFormat = Intl.DateTimeFormat('en', {
   hour: 'numeric',
   timeZoneName: 'longGeneric',
 });
-export const openDate = endFormat.format(parseDate(edition.timeline.tickets.open));
+export const openDate = endFormat.format(Utils.parseDate(edition.timeline.tickets.open));
 
 # Tickets
 

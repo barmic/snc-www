@@ -11,6 +11,7 @@ import '../styles/reset.css';
 import '../styles/style.css';
 import '../styles/main.css';
 import 'font-awesome/css/font-awesome.css';
+import Utils from '../utils.js';
 
 import current from '../data/current.yaml';
 
@@ -79,8 +80,8 @@ const {frontmatter, title} = Astro.props;
 </head>
 <body lang={lang}>
   <header class="full-bleed">
-    <a href={getRelativeLocaleUrl(lang, '/')}>
-      <img style="max-width: 170px" src="/img/alpes-snow-full-illustration.webp" alt="Logo">
+    <a href={Utils.url( '', {lang})}>
+      <img style="max-width: 170px" src={Utils.url('/img/alpes-snow-full-illustration.webp')} alt="Logo">
     </a>
     <Menu></Menu>
   </header>
@@ -99,7 +100,7 @@ const {frontmatter, title} = Astro.props;
       const zone = match[2];
       const dt = DateTime.fromISO(dateStr, { zone });
       return new Date(dt.toString());
-      }
+    }
     return new Date(input);
   }
   const hideTimeline = (timelineEvent, name) => {

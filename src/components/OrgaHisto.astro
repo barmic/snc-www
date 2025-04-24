@@ -1,10 +1,10 @@
 ---
-import parseDate from '../utils.js';
+import Utils from '../utils';
 import edition from '../data/current.yaml';
 import organisation from '../data/organisation.yaml';
 
 const first = 2016;
-const currentYear = parseDate(edition.start_date).getFullYear();
+const currentYear = Utils.parseDate(edition.start_date).getFullYear();
 const years = [...Array(currentYear - first).keys()].map((offset) => offset + 2016);
 
 async function loadYear(year: number) {
@@ -14,7 +14,7 @@ async function loadYear(year: number) {
 }
 
 const previous_years = (await Promise.all(years.map((year) => loadYear(year)))).filter((edition) => edition.start_date);
-const editions = previous_years.map((year) => parseDate(year.start_date).getFullYear());
+const editions = previous_years.map((year) => Utils.parseDate(year.start_date).getFullYear());
 
 function compare(a, b) {
   const split = a.name.split(" ");

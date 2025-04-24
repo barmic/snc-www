@@ -1,5 +1,5 @@
 ---
-import parseDate from '../utils.js';
+import Utils from '../utils';
 import edition from '../data/current.yaml';
 const lang = (Astro.locals as any).lang;
 
@@ -16,9 +16,9 @@ const endFormat = Intl.DateTimeFormat(lang, {
   month: 'long',
   day: 'numeric',
 });
-const startDate = parseDate(edition.start_date);
+const startDate = Utils.parseDate(edition.start_date);
 const start = startFormat.format(startDate);
-const end = endFormat.format(parseDate(edition.end_date));
+const end = endFormat.format(Utils.parseDate(edition.end_date));
 const year = startDate.getFullYear();
 ---
 <style>

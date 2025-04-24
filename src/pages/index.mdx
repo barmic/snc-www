@@ -3,7 +3,7 @@ layout: ../layouts/main.astro
 title: SnowCamp
 description: home page
 ---
-import parseDate from '../utils.js';
+import Utils from '../utils';
 import current from '../data/current.yaml';
 import Polaroid from '../components/Polaroid.astro';
 import Spotlight from '../components/Spotlight.astro';
@@ -28,10 +28,10 @@ export const endFormat = Intl.DateTimeFormat('fr', {
   month: 'long',
   day: 'numeric',
 });
-export const opencfp = endFormat.format(parseDate(current.timeline.cfp.open));
-export const startDate = parseDate(current.start_date);
+export const opencfp = endFormat.format(Utils.parseDate(current.timeline.cfp.open));
+export const startDate = Utils.parseDate(current.start_date);
 export const start = startFormat.format(startDate);
-export const end = endFormat.format(parseDate(current.end_date));
+export const end = endFormat.format(Utils.parseDate(current.end_date));
 export const year = startDate.getFullYear();
 
 export const etoiles = current.sponsorship.etoile.map((id) => sponsorsTable[id]);
@@ -64,9 +64,9 @@ export const tlCFP = [
 > 2 jours de conférences avec des présentations de 45 minutes.
 
 <Columns3>
-  <ShortDescription title="Universités" description="Une journée de formation en profondeur (2 formations de 3 heures au choix)." img="/img/icon-univ.png"/>
-  <ShortDescription title="Conférences" description="2 jours de conférences avec des présentations de 45 minutes." img="/img/icon-conf.png"/>
-  <ShortDescription title="Unconference" description="Une journée d'échange sur les pistes mêlant orateurs et participants." img="/img/icon-unconference.webp"/>
+  <ShortDescription title="Universités" description="Une journée de formation en profondeur (2 formations de 3 heures au choix)." img={Utils.url("/img/icon-univ.png")}/>
+  <ShortDescription title="Conférences" description="2 jours de conférences avec des présentations de 45 minutes." img={Utils.url("/img/icon-conf.png")}/>
+  <ShortDescription title="Unconference" description="Une journée d'échange sur les pistes mêlant orateurs et participants." img={Utils.url("/img/icon-unconference.webp")}/>
 </Columns3>
 
 # Innovation & Recherche
@@ -74,9 +74,9 @@ export const tlCFP = [
 > Une conférence à haut niveau technique réunissant des ingénieurs et des académiques
 
 <Columns3>
-  <ShortDescription title="Innovation" description="Découvrez les outils, frameworks et technologies d'aujourd'hui et de demain." img="/img/icon-dev.png"/>
-  <ShortDescription title="Échange" description="Rencontrez et échangez avec d'autres devs, ops, archis et orateurs." img="/img/icon-cloud.png"/>
-  <ShortDescription title="Recherche" description="Découvrez les travaux des chercheurs sur les tendances et sujets du moment." img="/img/icon-academic.png"/>
+  <ShortDescription title="Innovation" description="Découvrez les outils, frameworks et technologies d'aujourd'hui et de demain." img={Utils.url("/img/icon-dev.png")}/>
+  <ShortDescription title="Échange" description="Rencontrez et échangez avec d'autres devs, ops, archis et orateurs." img={Utils.url("/img/icon-cloud.png")}/>
+  <ShortDescription title="Recherche" description="Découvrez les travaux des chercheurs sur les tendances et sujets du moment." img={Utils.url("/img/icon-academic.png")}/>
 </Columns3>
 
 # Call For Proposals
