@@ -3,7 +3,7 @@ layout: ../../layouts/main.astro
 title: Association SnowCamp
 description: Documents officiels de l'association
 ---
-import parseDate from '../../utils.js';
+import Utils from '../../utils.js';
 import current from '../../data/current.yaml';
 import TimelineCFP from '../../components/TimelineCFP.astro';
 import Button from '../../components/Button.astro';
@@ -13,7 +13,7 @@ export const endFormat = Intl.DateTimeFormat('en', {
   month: 'long',
   day: 'numeric',
 });
-export const opencfp = endFormat.format(parseDate(current.timeline.cfp.open));
+export const opencfp = endFormat.format(Utils.parseDate(current.timeline.cfp.open));
 export const tlCFP = [
   {
     "title": "Open",

@@ -28,10 +28,10 @@ export const endFormat = Intl.DateTimeFormat('en', {
   month: 'long',
   day: 'numeric',
 });
-export const opencfp = endFormat.format(parseDate(current.timeline.cfp.open));
-export const startDate = parseDate(current.start_date);
+export const opencfp = endFormat.format(Utils.parseDate(current.timeline.cfp.open));
+export const startDate = Utils.parseDate(current.start_date);
 export const start = startFormat.format(startDate);
-export const end = endFormat.format(parseDate(current.end_date));
+export const end = endFormat.format(Utils.parseDate(current.end_date));
 export const year = startDate.getFullYear();
 
 export const etoiles = current.sponsorship.etoile.map((id) => sponsorsTable[id]);
